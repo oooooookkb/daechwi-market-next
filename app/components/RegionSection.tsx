@@ -16,12 +16,12 @@ const products = [
 ];
 
 const allCards = [
-  { id: 1, thumb: "24시 비대면\n월변대출", title: "24시 비대면 월변대출", desc: "상담 후 송금 OK\n신속한 당일 간편 대출", company: "24시전국당일승인대..", region: "전국", tags: ["월변대출", "당일대출", "무방문대출", "24시대출"] },
-  { id: 2, thumb: "24시 비대면\n당일입금", title: "24시 비대면 당일입금", desc: "무직자·저신용·외국인 OK\n무방문 월변 빠른진행", company: "구조대부", region: "서울", tags: ["무직자대출", "당일대출", "저신용자", "무방문대출"] },
-  { id: 3, thumb: "1개월 비대면\n월변대출", title: "1개월 비대면 월변대출", desc: "직장인·자영업자 OK\n신속 비대면 빠른진행", company: "드림파이낸셜", region: "경기", tags: ["직장인대출", "월변대출", "비대면대출"] },
-  { id: 4, thumb: "24시 비대면\n당일대출", title: "24시 비대면 당일대출", desc: "소액 가능·당일송금\n전국 어디서나 OK", company: "미래대부", region: "부산", tags: ["당일대출", "소액대출", "24시대출"] },
-  { id: 5, thumb: "소액 급전\n당일송금", title: "소액 급전 당일송금", desc: "10만~300만원 소액\n신용불량 가능", company: "희망대부", region: "대구", tags: ["소액대출", "급전대출", "신불자대출"] },
-  { id: 6, thumb: "사업자\n비대면대출", title: "사업자 비대면대출", desc: "자영업·개인사업자 OK\n매출 기반 한도산정", company: "성장파이낸셜", region: "인천", tags: ["사업자대출", "비대면대출"] },
+  { id: 1, badge: "월변·당일", title: "24시 비대면 월변대출", desc: "상담 후 송금 OK\n신속한 당일 간편 대출", company: "24시전국당일승인대부", region: "전국", color: "#0F2D5E", tags: ["월변대출", "당일대출", "무방문대출", "24시대출"] },
+  { id: 2, badge: "무직자·저신용", title: "24시 비대면 당일입금", desc: "무직자·저신용·외국인 OK\n무방문 월변 빠른진행", company: "구조대부", region: "서울", color: "#1A3A6B", tags: ["무직자대출", "당일대출", "저신용자", "무방문대출"] },
+  { id: 3, badge: "직장인·비대면", title: "1개월 비대면 월변대출", desc: "직장인·자영업자 OK\n신속 비대면 빠른진행", company: "드림파이낸셜", region: "경기", color: "#122B55", tags: ["직장인대출", "월변대출", "비대면대출"] },
+  { id: 4, badge: "소액·당일", title: "24시 비대면 당일대출", desc: "소액 가능·당일송금\n전국 어디서나 OK", company: "미래대부", region: "부산", color: "#0F2D5E", tags: ["당일대출", "소액대출", "24시대출"] },
+  { id: 5, badge: "소액·급전", title: "소액 급전 당일송금", desc: "10만~300만원 소액\n신용불량 가능", company: "희망대부", region: "대구", color: "#1A3A6B", tags: ["소액대출", "급전대출", "신불자대출"] },
+  { id: 6, badge: "사업자", title: "사업자 비대면대출", desc: "자영업·개인사업자 OK\n매출 기반 한도산정", company: "성장파이낸셜", region: "인천", color: "#122B55", tags: ["사업자대출", "비대면대출"] },
 ];
 
 type Card = typeof allCards[0];
@@ -29,10 +29,9 @@ type Card = typeof allCards[0];
 function CardItem({ card }: { card: Card }) {
   return (
     <div className="card">
-      <div className="card-thumb">
-        {card.thumb.split("\n").map((line, i) => (
-          <span key={i}>{line}{i < card.thumb.split("\n").length - 1 && <br />}</span>
-        ))}
+      <div className="card-thumb" style={{ background: `linear-gradient(160deg, ${card.color} 0%, #1E4A8A 100%)` }}>
+        <span className="card-thumb-badge">{card.badge}</span>
+        <span className="card-thumb-co">{card.company}</span>
       </div>
       <div className="card-body">
         <div className="card-title">{card.title}</div>

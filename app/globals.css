@@ -534,10 +534,10 @@ a {
 
 /* 업체명 */
 .card-thumb-co {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 900;
   color: #fff;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.4px;
   line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
@@ -605,7 +605,7 @@ a {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 65%;
+  max-width: 72%;
   font-weight: 600;
 }
 
