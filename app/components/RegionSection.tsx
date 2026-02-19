@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 const regions = ["전체", "서울", "경기", "인천", "대전", "대구", "부산", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
 const products = [
@@ -53,7 +54,7 @@ function CardItem({ card }: { card: Card }) {
   );
 }
 
-export default function RegionSection() {
+export default function RegionSection({ hideCards = false }: { hideCards?: boolean }) {
   const [activeTab, setActiveTab] = useState<"region" | "product">("region");
   const [activeRegion, setActiveRegion] = useState("전체");
   const [activeProduct, setActiveProduct] = useState("전체");
@@ -61,6 +62,7 @@ export default function RegionSection() {
   const items = activeTab === "region" ? regions : products;
   const activeItem = activeTab === "region" ? activeRegion : activeProduct;
   const setActive = activeTab === "region" ? setActiveRegion : setActiveProduct;
+  const linkHref = activeTab === "region" ? "/region" : "/product";
 
   const filteredCards = allCards.filter((card) => {
     if (activeTab === "region") {
@@ -103,26 +105,34 @@ export default function RegionSection() {
             </button>
           ))}
         </div>
-      </section>
 
-      <section className="cards-section">
-        <p className="section-head">
-          <span>{label}</span> 업체{filteredCards.length > 0 ? ` ${filteredCards.length}개` : ""}
-        </p>
-        {filteredCards.length > 0 ? (
-          <div className="cards-grid">
-            {filteredCards.map((card) => (
-              <CardItem key={card.id} card={card} />
-            ))}
-          </div>
-        ) : (
-          <div style={{ padding: "40px 16px", textAlign: "center", background: "#fff" }}>
-            <div style={{ fontSize: "36px", marginBottom: "12px" }}>🔍</div>
-            <p style={{ fontSize: "14px", fontWeight: 700, color: "#555" }}>해당 조건의 업체가 없어요</p>
-            <p style={{ fontSize: "12.5px", color: "#999", marginTop: "4px" }}>다른 지역이나 상품을 선택해보세요</p>
-          </div>
+        {hideCards && (
+          <Link href={linkHref} className="realtime-more">
+            🔍 업체 찾아보기
+          </Link>
         )}
       </section>
+
+      {!hideCards && (
+        <section className="cards-section">
+          <p className="section-head">
+            <span>{label}</span> 업체{filteredCards.length > 0 ? ` ${filteredCards.length}개` : ""}
+          </p>
+          {filteredCards.length > 0 ? (
+            <div className="cards-grid">
+              {filteredCards.map((card) => (
+                <CardItem key={card.id} card={card} />
+              ))}
+            </div>
+          ) : (
+            <div style={{ padding: "40px 16px", textAlign: "center", background: "#fff" }}>
+              <div style={{ fontSize: "36px", marginBottom: "12px" }}>🔍</div>
+              <p style={{ fontSize: "14px", fontWeight: 700, color: "#555" }}>해당 조건의 업체가 없어요</p>
+              <p style={{ fontSize: "12.5px", color: "#999", marginTop: "4px" }}>다른 지역이나 상품을 선택해보세요</p>
+            </div>
+          )}
+        </section>
+      )}
     </>
   );
 }

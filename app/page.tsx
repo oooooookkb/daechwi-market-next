@@ -19,7 +19,7 @@ export default function Home() {
       <div className="rt-divider"></div>
       <RealtimeSection />
       <div className="section-divider"></div>
-      <RegionSection />
+      <RegionSection hideCards />
       <CompanySection />
       <div className="spacer"></div>
       <BottomNav />
