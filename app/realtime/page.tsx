@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "../components/Header";
 import NavTabs from "../components/NavTabs";
 import BottomNav from "../components/BottomNav";
+import InfoSlider from "../components/InfoSlider";
 import RealtimeSection from "../components/RealtimeSection";
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RealtimePage() {
           지금 이 순간 올라오는 대출 문의를 확인하세요
         </p>
       </section>
+      <InfoSlider />
       <RealtimeSection />
       <div className="spacer"></div>
       <BottomNav />
