@@ -23,6 +23,12 @@ export default function RealtimeSection() {
         </span>
       </div>
 
+      {/* 컬럼 헤더 */}
+      <div className="realtime-col-head">
+        <span>다른 사람들의 대출 문의</span>
+        <span>지역 · 요청금액</span>
+      </div>
+
       <ul className="realtime-list">
         {realtimeData.map((item, i) => (
           <li className="realtime-item" key={i}>
