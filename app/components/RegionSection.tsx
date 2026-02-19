@@ -80,37 +80,47 @@ export default function RegionSection({ hideCards = false }: { hideCards?: boole
     <>
       <section className="region-section">
         <div className="region-tabs">
-          <button
-            className={`region-tab ${activeTab === "region" ? "active" : ""}`}
-            onClick={() => setActiveTab("region")}
-          >
-            지역별 업체찾기
-          </button>
-          <button
-            className={`region-tab ${activeTab === "product" ? "active" : ""}`}
-            onClick={() => setActiveTab("product")}
-          >
-            상품별 업체찾기
-          </button>
+          {hideCards ? (
+            <Link href="/region" className={`region-tab ${activeTab === "region" ? "active" : ""}`} onClick={() => setActiveTab("region")}>
+              지역별 업체찾기
+            </Link>
+          ) : (
+            <button className={`region-tab ${activeTab === "region" ? "active" : ""}`} onClick={() => setActiveTab("region")}>
+              지역별 업체찾기
+            </button>
+          )}
+          {hideCards ? (
+            <Link href="/product" className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
+              상품별 업체찾기
+            </Link>
+          ) : (
+            <button className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
+              상품별 업체찾기
+            </button>
+          )}
         </div>
 
         <div className={activeTab === "product" ? "region-grid region-grid--product" : "region-grid"}>
           {items.map((item) => (
-            <button
-              key={item}
-              className={`region-btn ${activeItem === item ? "active" : ""}`}
-              onClick={() => setActive(item)}
-            >
-              {item}
-            </button>
+            hideCards ? (
+              <Link
+                key={item}
+                href={`${linkHref}?q=${encodeURIComponent(item)}`}
+                className={`region-btn ${activeItem === item ? "active" : ""}`}
+              >
+                {item}
+              </Link>
+            ) : (
+              <button
+                key={item}
+                className={`region-btn ${activeItem === item ? "active" : ""}`}
+                onClick={() => setActive(item)}
+              >
+                {item}
+              </button>
+            )
           ))}
         </div>
-
-        {hideCards && (
-          <Link href={linkHref} className="realtime-more">
-            🔍 업체 찾아보기
-          </Link>
-        )}
       </section>
 
       {!hideCards && (
