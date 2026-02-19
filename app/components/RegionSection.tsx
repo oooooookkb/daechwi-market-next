@@ -53,7 +53,7 @@ function CardItem({ card }: { card: Card }) {
   );
 }
 
-export default function RegionSection({ hideCards = false, hideTabs = false }: { hideCards?: boolean; hideTabs?: boolean }) {
+export default function RegionSection({ hideCards = false, hideTabs = false, regionOnly = false }: { hideCards?: boolean; hideTabs?: boolean; regionOnly?: boolean }) {
   const [activeTab, setActiveTab] = useState<"region" | "product">("region");
   const [activeRegion, setActiveRegion] = useState("전체");
   const [activeProduct, setActiveProduct] = useState("전체");
@@ -89,14 +89,16 @@ export default function RegionSection({ hideCards = false, hideTabs = false }: {
                 지역별 업체찾기
               </button>
             )}
-            {hideCards ? (
-              <Link href="/product" className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
-                상품별 업체찾기
-              </Link>
-            ) : (
-              <button className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
-                상품별 업체찾기
-              </button>
+            {!regionOnly && (
+              hideCards ? (
+                <Link href="/product" className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
+                  상품별 업체찾기
+                </Link>
+              ) : (
+                <button className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
+                  상품별 업체찾기
+                </button>
+              )
             )}
           </div>
         )}

@@ -15,7 +15,7 @@ export default function RegionPage() {
     <>
       <Header />
       <NavTabs />
-      <RegionSection hideTabs />
+      <RegionSection regionOnly />
       <div style={{ height: "10px", background: "#C4C8D4" }}></div>
       <CompanySection />
       <div className="spacer"></div>
