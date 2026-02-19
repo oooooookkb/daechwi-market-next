@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-const regions = ["전체", "서울", "경기", "인천", "대전", "대구", "부산", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
 const products = [
   "전체", "직장인대출", "무직자대출", "여성대출", "개인돈대출",
   "연체자대출", "소액대출", "무방문대출", "월변대출",
@@ -53,51 +52,24 @@ function CardItem({ card }: { card: Card }) {
   );
 }
 
-export default function RegionSection() {
-  const [activeTab, setActiveTab] = useState<"region" | "product">("region");
-  const [activeRegion, setActiveRegion] = useState("전체");
+export default function RegionSectionProduct() {
   const [activeProduct, setActiveProduct] = useState("전체");
 
-  const items = activeTab === "region" ? regions : products;
-  const activeItem = activeTab === "region" ? activeRegion : activeProduct;
-  const setActive = activeTab === "region" ? setActiveRegion : setActiveProduct;
+  const filteredCards = allCards.filter((card) =>
+    activeProduct === "전체" || card.tags.includes(activeProduct)
+  );
 
-  const filteredCards = allCards.filter((card) => {
-    if (activeTab === "region") {
-      return activeRegion === "전체" || card.region === activeRegion;
-    } else {
-      return activeProduct === "전체" || card.tags.includes(activeProduct);
-    }
-  });
-
-  const label = activeTab === "region"
-    ? (activeRegion === "전체" ? "전체 지역" : activeRegion)
-    : (activeProduct === "전체" ? "전체 상품" : activeProduct);
+  const label = activeProduct === "전체" ? "전체 상품" : activeProduct;
 
   return (
     <>
       <section className="region-section">
-        <div className="region-tabs">
-          <button
-            className={`region-tab ${activeTab === "region" ? "active" : ""}`}
-            onClick={() => setActiveTab("region")}
-          >
-            지역별 업체찾기
-          </button>
-          <button
-            className={`region-tab ${activeTab === "product" ? "active" : ""}`}
-            onClick={() => setActiveTab("product")}
-          >
-            상품별 업체찾기
-          </button>
-        </div>
-
-        <div className={activeTab === "product" ? "region-grid region-grid--product" : "region-grid"}>
-          {items.map((item) => (
+        <div className="region-grid region-grid--product">
+          {products.map((item) => (
             <button
               key={item}
-              className={`region-btn ${activeItem === item ? "active" : ""}`}
-              onClick={() => setActive(item)}
+              className={`region-btn ${activeProduct === item ? "active" : ""}`}
+              onClick={() => setActiveProduct(item)}
             >
               {item}
             </button>
@@ -119,7 +91,7 @@ export default function RegionSection() {
           <div style={{ padding: "40px 16px", textAlign: "center", background: "#fff" }}>
             <div style={{ fontSize: "36px", marginBottom: "12px" }}>🔍</div>
             <p style={{ fontSize: "14px", fontWeight: 700, color: "#555" }}>해당 조건의 업체가 없어요</p>
-            <p style={{ fontSize: "12.5px", color: "#999", marginTop: "4px" }}>다른 지역이나 상품을 선택해보세요</p>
+            <p style={{ fontSize: "12.5px", color: "#999", marginTop: "4px" }}>다른 상품을 선택해보세요</p>
           </div>
         )}
       </section>

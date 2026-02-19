@@ -16,7 +16,6 @@ export default function Header() {
           <div className="logo-row">
             <span className="logo-name">대출마켓</span>
           </div>
-          <span className="logo-tag">대출중개플랫폼 1위</span>
         </Link>
         <button className="h-btn" aria-label="메뉴">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">

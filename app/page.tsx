@@ -3,6 +3,7 @@ import NavTabs from "./components/NavTabs";
 import BottomNav from "./components/BottomNav";
 import HeroSection from "./components/HeroSection";
 import StatsSection from "./components/StatsSection";
+import InfoSlider from "./components/InfoSlider";
 import CardsSection from "./components/CardsSection";
 import RealtimeSection from "./components/RealtimeSection";
 import RegionSection from "./components/RegionSection";
@@ -15,6 +16,7 @@ export default function Home() {
       <NavTabs />
       <HeroSection />
       <StatsSection />
+      <InfoSlider />
       <CardsSection />
       <div className="rt-divider"></div>
       <RealtimeSection />
