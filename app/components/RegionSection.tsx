@@ -78,7 +78,7 @@ export default function RegionSection({ hideCards = false, hideTabs = false, reg
   return (
     <>
       <section className="region-section">
-        {!hideTabs && (
+        {!hideTabs && !regionOnly && (
           <div className="region-tabs">
             {hideCards ? (
               <Link href="/region" className={`region-tab ${activeTab === "region" ? "active" : ""}`} onClick={() => setActiveTab("region")}>
@@ -89,16 +89,14 @@ export default function RegionSection({ hideCards = false, hideTabs = false, reg
                 지역별 업체찾기
               </button>
             )}
-            {!regionOnly && (
-              hideCards ? (
-                <Link href="/product" className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
-                  상품별 업체찾기
-                </Link>
-              ) : (
-                <button className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
-                  상품별 업체찾기
-                </button>
-              )
+            {hideCards ? (
+              <Link href="/product" className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
+                상품별 업체찾기
+              </Link>
+            ) : (
+              <button className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
+                상품별 업체찾기
+              </button>
             )}
           </div>
         )}
