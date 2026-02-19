@@ -15,10 +15,10 @@ export default function Home() {
       <HeroSection />
       <StatsSection />
       <CardsSection />
-      <div className="rt-divider"></div>
-      <RealtimeSection />
       <div className="section-divider"></div>
       <RegionSection hideCards />
+      <div className="rt-divider"></div>
+      <RealtimeSection />
       <div className="spacer"></div>
       <BottomNav />
     </>
