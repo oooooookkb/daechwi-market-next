@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const realtimeData = [
   { query: "무직자도 가능한 곳", count: 11, time: "1분 전", region: "광주", amount: "150만 원" },
   { query: "300만원 급합니다", count: 8, time: "방금 전", region: "대구", amount: "300만 원" },
@@ -42,7 +44,9 @@ export default function RealtimeSection() {
         ))}
       </ul>
 
-      <button className="realtime-more">더보기 ∨</button>
+      <Link href="/realtime" className="realtime-more">
+        🔍 실시간 대출 문의 더보기
+      </Link>
     </section>
   );
 }
