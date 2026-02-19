@@ -53,7 +53,7 @@ function CardItem({ card }: { card: Card }) {
   );
 }
 
-export default function RegionSection({ hideCards = false }: { hideCards?: boolean }) {
+export default function RegionSection({ hideCards = false, hideTabs = false }: { hideCards?: boolean; hideTabs?: boolean }) {
   const [activeTab, setActiveTab] = useState<"region" | "product">("region");
   const [activeRegion, setActiveRegion] = useState("전체");
   const [activeProduct, setActiveProduct] = useState("전체");
@@ -78,26 +78,28 @@ export default function RegionSection({ hideCards = false }: { hideCards?: boole
   return (
     <>
       <section className="region-section">
-        <div className="region-tabs">
-          {hideCards ? (
-            <Link href="/region" className={`region-tab ${activeTab === "region" ? "active" : ""}`} onClick={() => setActiveTab("region")}>
-              지역별 업체찾기
-            </Link>
-          ) : (
-            <button className={`region-tab ${activeTab === "region" ? "active" : ""}`} onClick={() => setActiveTab("region")}>
-              지역별 업체찾기
-            </button>
-          )}
-          {hideCards ? (
-            <Link href="/product" className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
-              상품별 업체찾기
-            </Link>
-          ) : (
-            <button className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
-              상품별 업체찾기
-            </button>
-          )}
-        </div>
+        {!hideTabs && (
+          <div className="region-tabs">
+            {hideCards ? (
+              <Link href="/region" className={`region-tab ${activeTab === "region" ? "active" : ""}`} onClick={() => setActiveTab("region")}>
+                지역별 업체찾기
+              </Link>
+            ) : (
+              <button className={`region-tab ${activeTab === "region" ? "active" : ""}`} onClick={() => setActiveTab("region")}>
+                지역별 업체찾기
+              </button>
+            )}
+            {hideCards ? (
+              <Link href="/product" className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
+                상품별 업체찾기
+              </Link>
+            ) : (
+              <button className={`region-tab ${activeTab === "product" ? "active" : ""}`} onClick={() => setActiveTab("product")}>
+                상품별 업체찾기
+              </button>
+            )}
+          </div>
+        )}
 
         <div className={activeTab === "product" ? "region-grid region-grid--product" : "region-grid"}>
           {items.map((item) => (

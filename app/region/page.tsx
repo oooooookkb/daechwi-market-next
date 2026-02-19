@@ -23,7 +23,7 @@ export default function RegionPage() {
           원하는 지역을 선택하면 해당 지역 업체를 확인할 수 있어요
         </p>
       </section>
-      <RegionSection />
+      <RegionSection hideTabs />
       <div style={{ height: "10px", background: "#C4C8D4" }}></div>
       <CompanySection />
       <div className="spacer"></div>
