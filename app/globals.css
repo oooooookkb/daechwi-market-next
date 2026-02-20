@@ -3929,7 +3929,7 @@ a {
     min-height: 280px;
   }
   .hero-left {
-    flex: 0 0 60%;
+    flex: 0 0 70%;
     padding: 52px 32px 46px 24px;
     display: flex;
     flex-direction: column;
@@ -4001,7 +4001,7 @@ a {
   /* ── 우측 패널 ── */
   .hero-right {
     display: flex !important;
-    flex: 0 0 40%;
+    flex: 0 0 30%;
     flex-direction: column;
     border-left: 1px solid rgba(255,255,255,0.12);
     min-height: 100%;
