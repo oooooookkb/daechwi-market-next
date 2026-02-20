@@ -119,11 +119,10 @@ a {
    NAV TABS
 ──────────────────────────── */
 .nav {
-  background: #fff;
+  background: var(--navy-mid);
   overflow-x: auto;
   scrollbar-width: none;
   position: relative;
-  border-bottom: 1px solid #E8EAF0;
 }
 
 .nav::after {
@@ -134,7 +133,7 @@ a {
   display: block;
   width: 36px;
   height: 100%;
-  background: linear-gradient(to right, transparent, #fff);
+  background: linear-gradient(to right, transparent, var(--navy-mid));
   pointer-events: none;
   flex-shrink: 0;
 }
@@ -152,8 +151,8 @@ a {
   flex-shrink: 0;
   padding: 12px 11px;
   font-size: 12.5px;
-  font-weight: 700;
-  color: #888;
+  font-weight: 800;
+  color: rgba(255,255,255,0.75);
   cursor: pointer;
   white-space: nowrap;
   border-bottom: 3px solid transparent;
@@ -166,12 +165,12 @@ a {
 }
 
 .nav-item:hover {
-  color: #111;
+  color: #fff;
 }
 
 .nav-item.active {
-  color: #0B1D3A;
-  border-bottom-color: #0B1D3A;
+  color: #fff;
+  border-bottom-color: var(--gold);
   font-weight: 900;
 }
 
