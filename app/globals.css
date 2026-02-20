@@ -4004,7 +4004,7 @@ a {
   .hrp-prem-header {
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: space-between;
     margin-bottom: 8px;
   }
   .hrp-prem-badge {
