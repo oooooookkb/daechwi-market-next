@@ -22,7 +22,7 @@ export default function ChatRequestPage() {
   const [agreed, setAgreed] = useState(false);
 
   const [loading, setLoading] = useState(false);
-  const canSubmit = loanType.length > 0 && job && amount && region && agreed;
+  const canSubmit = loanType.length > 0 && job && amount && region && memo && agreed;
 
   function toggleLoan(v: string) {
     setLoanType(prev => prev.includes(v) ? prev.filter(x => x !== v) : [...prev, v]);
@@ -129,16 +129,16 @@ export default function ChatRequestPage() {
         </div>
       </div>
 
-      {/* 추가 메모 */}
+      {/* 내 요청 사항 */}
       <div className="cr-card">
         <div className="cr-card-head">
           <span className="cr-card-icon">📝</span>
-          <span className="cr-card-label">추가 상황</span>
-          <span className="cr-badge-opt">선택</span>
+          <span className="cr-card-label">내 요청 사항</span>
+          <span className="cr-badge-req">필수</span>
         </div>
         <textarea
           className="cr-memo"
-          placeholder="예: 신용등급 낮아도 가능한 곳, 당일 송금 원해요"
+          placeholder="예: 신용등급 낮아도 가능한 곳, 당일 송금 원해요, 이자율 낮은 곳..."
           value={memo}
           onChange={e => setMemo(e.target.value.slice(0, 500))}
           rows={3}
