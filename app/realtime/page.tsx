@@ -16,8 +16,8 @@ export default function RealtimePage() {
     <>
       <Header />
       <NavTabs />
-      <InfoSlider />
       <RealtimeHero />
+      <InfoSlider />
       <RealtimeSection />
       <div className="spacer"></div>
       <BottomNav />
