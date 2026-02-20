@@ -9,7 +9,8 @@
 .pc3col-wrap,
 .pc-comm-wrap,
 .pc-footer,
-.pc-only {
+.pc-only,
+.pc-only-block {
   display: none;
 }
 
