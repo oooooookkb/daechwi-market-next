@@ -143,10 +143,6 @@ export default function HeroSection() {
           </h1>
           <p className="hero-sub-text">{slide.sub}</p>
           <p className="hero-meta-text">{slide.meta}</p>
-          <div className="hero-cta-row">
-            <a href="/realtime" className="hero-cta-btn hero-cta-btn--primary">지금 바로 상담받기 →</a>
-            <a href="/search" className="hero-cta-btn hero-cta-btn--ghost">맞춤 업체 찾기</a>
-          </div>
         </div>
         <div className="hero-dots">
           {slides.map((s, i) => (
