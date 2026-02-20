@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Header from "../components/Header";
 import NavTabs from "../components/NavTabs";
 import BottomNav from "../components/BottomNav";
+import { supabase } from "../../lib/supabase";
 
 const loanTypes = ["소액급전", "월변대출", "무직자대출", "직장인대출", "사업자대출", "자동차담보", "부동산담보"];
 const jobOptions = ["직장인", "자영업자", "무직자", "주부", "학생", "프리랜서"];
@@ -20,10 +21,27 @@ export default function ChatRequestPage() {
   const [memo, setMemo] = useState("");
   const [agreed, setAgreed] = useState(false);
 
+  const [loading, setLoading] = useState(false);
   const canSubmit = loanType.length > 0 && job && amount && region && agreed;
 
   function toggleLoan(v: string) {
     setLoanType(prev => prev.includes(v) ? prev.filter(x => x !== v) : [...prev, v]);
+  }
+
+  async function handleSubmit() {
+    if (!canSubmit || loading) return;
+    setLoading(true);
+    const query = `${loanType.join(", ")} | ${job} | ${amount}${memo ? " | " + memo : ""}`;
+    await supabase.from("consultations").insert({
+      query,
+      region,
+      amount,
+      job,
+      loan_types: loanType,
+      memo,
+    });
+    setLoading(false);
+    router.push("/realtime");
   }
 
   return (
@@ -142,9 +160,9 @@ export default function ChatRequestPage() {
         <button
           className={`cr-submit-btn ${canSubmit ? "ready" : ""}`}
           disabled={!canSubmit}
-          onClick={() => router.push("/realtime")}
+          onClick={handleSubmit}
         >
-          {canSubmit ? "💬 채팅 상담 등록하기" : "필수 항목을 모두 선택해주세요"}
+          {loading ? "등록 중..." : canSubmit ? "💬 채팅 상담 등록하기" : "필수 항목을 모두 선택해주세요"}
         </button>
       </div>
 
