@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Header from "../components/Header";
 import NavTabs from "../components/NavTabs";
 import BottomNav from "../components/BottomNav";
@@ -11,46 +12,18 @@ const amountOptions = ["50만원 이하", "100만원", "200만원", "300만원",
 const regionOptions = ["서울", "경기", "인천", "부산", "대구", "광주", "대전", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
 
 export default function ChatRequestPage() {
+  const router = useRouter();
   const [loanType, setLoanType] = useState<string[]>([]);
   const [job, setJob] = useState("");
   const [amount, setAmount] = useState("");
   const [region, setRegion] = useState("");
   const [memo, setMemo] = useState("");
   const [agreed, setAgreed] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   const canSubmit = loanType.length > 0 && job && amount && region && agreed;
 
   function toggleLoan(v: string) {
     setLoanType(prev => prev.includes(v) ? prev.filter(x => x !== v) : [...prev, v]);
-  }
-
-  if (submitted) {
-    return (
-      <>
-        <Header />
-        <NavTabs />
-        <div className="cr-success">
-          <div className="cr-success-emoji">🎉</div>
-          <p className="cr-success-title">상담 요청이 등록됐어요!</p>
-          <p className="cr-success-sub">
-            선택하신 조건에 맞는 업체가<br />
-            곧 연락드릴 거예요.
-          </p>
-          <div className="cr-success-tags">
-            {loanType.map(t => <span key={t} className="cr-stag">#{t}</span>)}
-            <span className="cr-stag">👤 {job}</span>
-            <span className="cr-stag">💰 {amount}</span>
-            <span className="cr-stag">📍 {region}</span>
-          </div>
-          <button className="cr-retry-btn" onClick={() => { setSubmitted(false); setLoanType([]); setJob(""); setAmount(""); setRegion(""); setMemo(""); setAgreed(false); }}>
-            다시 요청하기
-          </button>
-        </div>
-        <div className="spacer" />
-        <BottomNav />
-      </>
-    );
   }
 
   return (
@@ -169,7 +142,7 @@ export default function ChatRequestPage() {
         <button
           className={`cr-submit-btn ${canSubmit ? "ready" : ""}`}
           disabled={!canSubmit}
-          onClick={() => setSubmitted(true)}
+          onClick={() => router.push("/realtime")}
         >
           {canSubmit ? "💬 채팅 상담 등록하기" : "필수 항목을 모두 선택해주세요"}
         </button>
