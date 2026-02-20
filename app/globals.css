@@ -5378,28 +5378,34 @@ a {
   .pc-rp-cards-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    background: #fff;
+    gap: 8px;
+    background: #F0F2F7;
+    padding: 8px;
     border: 1px solid #E4E8F0;
     border-top: none;
     border-radius: 0 0 8px 8px;
-    overflow: hidden;
   }
   .pc-rp-card {
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #E8EBF4;
-    border-bottom: 1px solid #E8EBF4;
+    border-radius: 8px;
+    border: 1px solid #E8EBF4;
+    box-shadow: 0 1px 4px rgba(11,29,58,0.06);
     cursor: pointer;
-    transition: background .15s;
+    transition: box-shadow .15s, transform .15s;
     background: #fff;
+    overflow: hidden;
   }
-  .pc-rp-card:nth-child(5n) { border-right: none; }
-  .pc-rp-card:hover { background: #F5F8FF; }
-  .pc-rp-card:hover .pc-rp-card-thumb { filter: brightness(1.12); }
+  .pc-rp-card:hover {
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(11,29,58,0.13);
+    transform: translateY(-2px);
+    z-index: 5;
+  }
 
   /* 썸네일 */
   .pc-rp-card-thumb {
-    height: 110px;
+    height: 90px;
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
@@ -5452,23 +5458,23 @@ a {
   /* 카드 본문 */
   .pc-rp-card-body {
     flex: 1;
-    padding: 12px 14px 8px;
+    padding: 14px 16px 10px;
     overflow: hidden;
   }
   .pc-rp-card-title {
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 800;
     color: var(--navy);
-    padding-bottom: 6px;
+    padding-bottom: 8px;
     border-bottom: 1px solid #ECEEF5;
     line-height: 1.3;
     word-break: keep-all;
   }
   .pc-rp-card-desc {
-    font-size: 12.5px;
+    font-size: 14px;
     color: #667;
-    padding: 7px 0 4px;
-    line-height: 1.55;
+    padding: 8px 0 4px;
+    line-height: 1.6;
     word-break: keep-all;
   }
   .pc-rp-card-footer {
