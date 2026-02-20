@@ -3916,7 +3916,9 @@ a {
   ════════════════════════ */
   .hero {
     padding: 0;
-    min-height: 280px;
+    height: 400px;
+    min-height: 400px;
+    max-height: 400px;
     display: block !important;
     background: linear-gradient(135deg, #3c3f47 0%, #1A3A6B 50%, #1E4D8C 100%);
   }
@@ -3926,7 +3928,7 @@ a {
     align-items: stretch;
     max-width: 1440px;
     margin: 0 auto;
-    min-height: 280px;
+    height: 400px;
   }
   .hero-left {
     flex: 0 0 65%;
