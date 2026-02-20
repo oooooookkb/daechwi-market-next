@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { supabase } from "../../lib/supabase";
 
@@ -23,39 +22,34 @@ function timeAgo(dateStr: string) {
   return `${Math.floor(diff / 86400)}일 전`;
 }
 
-const fallbackData = [
-  { id: -1, query: "무직자도 가능한 곳", region: "광주", amount: "150만원", job: "무직자", loan_types: ["소액급전"], memo: "", created_at: new Date(Date.now() - 60000).toISOString() },
-  { id: -2, query: "300만원 급합니다", region: "대구", amount: "300만원", job: "직장인", loan_types: ["월변대출"], memo: "", created_at: new Date(Date.now() - 120000).toISOString() },
-  { id: -3, query: "당일 송금 되는 곳 있나요", region: "서울", amount: "100만원", job: "자영업자", loan_types: ["소액급전"], memo: "", created_at: new Date(Date.now() - 180000).toISOString() },
-  { id: -4, query: "신용불량자도 되나요", region: "부산", amount: "200만원", job: "무직자", loan_types: ["무직자대출"], memo: "", created_at: new Date(Date.now() - 300000).toISOString() },
-  { id: -5, query: "월변 빠르게 부탁드립니다", region: "인천", amount: "50만원 이하", job: "주부", loan_types: ["월변대출"], memo: "", created_at: new Date(Date.now() - 600000).toISOString() },
-];
+const PAGE_SIZE = 10;
 
 export default function RealtimeSection() {
   const [items, setItems] = useState<Consultation[]>([]);
-  const [total, setTotal] = useState(1247);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(true);
+
+  const totalPages = Math.ceil(total / PAGE_SIZE);
 
   useEffect(() => {
-    async function load() {
-      const { data } = await supabase
-        .from("consultations")
-        .select("*")
-        .order("created_at", { ascending: false })
-        .limit(20);
+    load(page);
+  }, [page]);
 
-      if (data && data.length > 0) {
-        setItems(data);
-        setTotal(1247 + data.length);
-      } else {
-        setItems(fallbackData as Consultation[]);
-      }
-    }
-    load();
+  async function load(p: number) {
+    setLoading(true);
+    const from = (p - 1) * PAGE_SIZE;
+    const to = from + PAGE_SIZE - 1;
 
-    // 30초마다 자동 새로고침
-    const interval = setInterval(load, 30000);
-    return () => clearInterval(interval);
-  }, []);
+    const [{ data }, { count }] = await Promise.all([
+      supabase.from("consultations").select("*").order("created_at", { ascending: false }).range(from, to),
+      supabase.from("consultations").select("*", { count: "exact", head: true }),
+    ]);
+
+    setItems(data ?? []);
+    setTotal(count ?? 0);
+    setLoading(false);
+  }
 
   return (
     <section className="realtime-section">
@@ -65,7 +59,7 @@ export default function RealtimeSection() {
           <h2 className="realtime-title">실시간 대출 문의</h2>
         </div>
         <span className="realtime-total">
-          총 <strong>{total.toLocaleString()}</strong>건
+          총 <strong>{(1247 + total).toLocaleString()}</strong>건
         </span>
       </div>
 
@@ -74,30 +68,76 @@ export default function RealtimeSection() {
         <span>지역 · 요청금액</span>
       </div>
 
-      <ul className="realtime-list">
-        {items.map((item) => (
-          <li className="realtime-item" key={item.id}>
-            <div className="realtime-left">
-              <p className="realtime-query">{item.query}</p>
-              <p className="realtime-meta">
-                <span className="realtime-cnt">
-                  상담가능업체 <b>{Math.floor(Math.random() * 10) + 5}</b>
-                </span>
-                <span className="realtime-sep">|</span>
-                <span className="realtime-time">{timeAgo(item.created_at)}</span>
-              </p>
-            </div>
-            <div className="realtime-right">
-              <span className="realtime-region">{item.region}</span>
-              <span className="realtime-amount">{item.amount}</span>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {loading ? (
+        <div className="realtime-loading">불러오는 중...</div>
+      ) : (
+        <ul className="realtime-list">
+          {items.map((item) => (
+            <li className="realtime-item" key={item.id}>
+              <div className="realtime-left">
+                <p className="realtime-query">{item.query}</p>
+                <p className="realtime-meta">
+                  <span className="realtime-cnt">
+                    상담가능업체 <b>{(item.id % 10) + 5}</b>
+                  </span>
+                  <span className="realtime-sep">|</span>
+                  <span className="realtime-time">{timeAgo(item.created_at)}</span>
+                </p>
+              </div>
+              <div className="realtime-right">
+                <span className="realtime-region">{item.region}</span>
+                <span className="realtime-amount">{item.amount}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
 
-      <Link href="/realtime" className="realtime-more">
-        🔍 실시간 대출 문의 더보기
-      </Link>
+      {/* 페이지네이션 */}
+      {totalPages > 1 && (
+        <div className="realtime-pagination">
+          <button
+            className="rt-page-btn"
+            disabled={page === 1}
+            onClick={() => setPage(1)}
+          >«</button>
+          <button
+            className="rt-page-btn"
+            disabled={page === 1}
+            onClick={() => setPage(p => p - 1)}
+          >‹</button>
+
+          {Array.from({ length: totalPages }, (_, i) => i + 1)
+            .filter(p => p === 1 || p === totalPages || Math.abs(p - page) <= 2)
+            .reduce<(number | "...")[]>((acc, p, idx, arr) => {
+              if (idx > 0 && p - (arr[idx - 1] as number) > 1) acc.push("...");
+              acc.push(p);
+              return acc;
+            }, [])
+            .map((p, i) =>
+              p === "..." ? (
+                <span key={`dot-${i}`} className="rt-page-dot">…</span>
+              ) : (
+                <button
+                  key={p}
+                  className={`rt-page-btn ${page === p ? "active" : ""}`}
+                  onClick={() => setPage(p as number)}
+                >{p}</button>
+              )
+            )}
+
+          <button
+            className="rt-page-btn"
+            disabled={page === totalPages}
+            onClick={() => setPage(p => p + 1)}
+          >›</button>
+          <button
+            className="rt-page-btn"
+            disabled={page === totalPages}
+            onClick={() => setPage(totalPages)}
+          >»</button>
+        </div>
+      )}
     </section>
   );
 }

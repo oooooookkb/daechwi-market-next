@@ -889,6 +889,55 @@ a {
   color: #0B1D3A;
 }
 
+.realtime-loading {
+  text-align: center;
+  padding: 32px;
+  font-size: 13px;
+  color: var(--sub);
+}
+
+.realtime-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 14px 12px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.rt-page-btn {
+  min-width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text2);
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+  transition: all .15s;
+  padding: 0 6px;
+}
+
+.rt-page-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.rt-page-btn.active {
+  background: var(--navy-mid);
+  border-color: var(--navy-mid);
+  color: #fff;
+  font-weight: 800;
+}
+
+.rt-page-dot {
+  font-size: 13px;
+  color: var(--sub);
+  padding: 0 2px;
+}
+
 /* ────────────────────────────
    지역/상품별 탭 섹션
 ──────────────────────────── */
