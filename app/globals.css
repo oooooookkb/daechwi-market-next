@@ -840,6 +840,12 @@ a {
   color: #DDD;
 }
 
+.realtime-nickname {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--navy-mid);
+}
+
 .realtime-time {
   font-size: 11.5px;
   color: #AAA;

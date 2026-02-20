@@ -19,10 +19,11 @@ export default function ChatRequestPage() {
   const [amount, setAmount] = useState("");
   const [region, setRegion] = useState("");
   const [memo, setMemo] = useState("");
+  const [nickname, setNickname] = useState("");
   const [agreed, setAgreed] = useState(false);
 
   const [loading, setLoading] = useState(false);
-  const canSubmit = loanType.length > 0 && job && amount && region && memo && agreed;
+  const canSubmit = loanType.length > 0 && job && amount && region && memo && nickname && agreed;
 
   function toggleLoan(v: string) {
     setLoanType(prev => prev.includes(v) ? prev.filter(x => x !== v) : [...prev, v]);
@@ -39,6 +40,7 @@ export default function ChatRequestPage() {
       job,
       loan_types: loanType,
       memo,
+      nickname,
     });
     setLoading(false);
     router.push("/realtime");
@@ -127,6 +129,24 @@ export default function ChatRequestPage() {
             </button>
           ))}
         </div>
+      </div>
+
+      {/* 닉네임 */}
+      <div className="cr-card">
+        <div className="cr-card-head">
+          <span className="cr-card-icon">👤</span>
+          <span className="cr-card-label">닉네임</span>
+          <span className="cr-badge-req">필수</span>
+        </div>
+        <input
+          className="cr-memo"
+          style={{ height: "44px", resize: "none" }}
+          placeholder="예: 서울시민, 급전필요자, 직장인A ..."
+          value={nickname}
+          onChange={e => setNickname(e.target.value.slice(0, 20))}
+          maxLength={20}
+        />
+        <p className="cr-memo-count">{nickname.length}/20</p>
       </div>
 
       {/* 내 요청 사항 */}

@@ -11,6 +11,7 @@ type Consultation = {
   job: string;
   loan_types: string[];
   memo: string;
+  nickname: string;
   created_at: string;
 };
 
@@ -77,10 +78,12 @@ export default function RealtimeSection() {
               <div className="realtime-left">
                 <p className="realtime-query">{item.query}</p>
                 <p className="realtime-meta">
-                  <span className="realtime-cnt">
-                    상담가능업체 <b>{(item.id % 10) + 5}</b>
-                  </span>
-                  <span className="realtime-sep">|</span>
+                  {item.nickname && (
+                    <>
+                      <span className="realtime-nickname">{item.nickname}</span>
+                      <span className="realtime-sep">·</span>
+                    </>
+                  )}
                   <span className="realtime-time">{timeAgo(item.created_at)}</span>
                 </p>
               </div>
