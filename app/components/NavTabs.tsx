@@ -4,12 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { label: "실시간대출상담", href: "/realtime", badge: true },
-  { label: "지역별 업체찾기", href: "/region", badge: true },
-  { label: "상품별 업체찾기", href: "/product", badge: true },
-  { label: "오늘의 추천업체", href: "/recommend", badge: true },
-  { label: "사기번호조회", href: "/scam-check", badge: false },
-  { label: "이용후기", href: "/reviews", badge: false },
+  { label: "실시간대출상담", href: "/realtime" },
+  { label: "지역별 업체찾기", href: "/region" },
+  { label: "상품별 업체찾기", href: "/product" },
+  { label: "오늘의 추천업체", href: "/recommend" },
+  { label: "사기번호조회", href: "/scam-check" },
+  { label: "이용후기", href: "/reviews" },
 ];
 
 export default function NavTabs() {
@@ -25,7 +25,6 @@ export default function NavTabs() {
             className={`nav-item ${pathname === item.href ? "active" : ""}`}
           >
             {item.label}
-            {item.badge && <span className="badge">N</span>}
           </Link>
         ))}
       </div>
