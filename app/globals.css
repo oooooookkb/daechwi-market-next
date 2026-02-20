@@ -4298,22 +4298,22 @@ a {
   .card-body {
     width: 100%;
     flex: 1;
-    padding: 10px 12px 6px !important;
+    padding: 14px 16px 10px !important;
     overflow: hidden;
   }
   .card-title {
     font-size: 13.5px !important;
     font-weight: 800 !important;
-    padding-bottom: 6px !important;
+    padding-bottom: 8px !important;
     border-bottom: 1px solid #ECEEF5 !important;
     color: var(--navy) !important;
     line-height: 1.3 !important;
   }
   .card-desc {
-    font-size: 12px !important;
+    font-size: 14px !important;
     color: #667 !important;
-    padding: 6px 0 4px !important;
-    line-height: 1.5 !important;
+    padding: 8px 0 4px !important;
+    line-height: 1.6 !important;
   }
   .card-footer {
     padding-top: 0 !important;
