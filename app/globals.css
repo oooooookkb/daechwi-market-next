@@ -5414,10 +5414,29 @@ a {
     border-radius: 3px;
     background: rgba(255,255,255,0.2);
     color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
   }
   .pc-rp-card-badge.best {
     background: var(--gold);
     color: var(--navy);
+    border-color: var(--gold);
+  }
+  .pc-rp-card-badge.tag--gold   { color: #F5A623; background: rgba(245,166,35,0.18);  border-color: rgba(245,166,35,0.4); }
+  .pc-rp-card-badge.tag--red    { color: #FF6B6B; background: rgba(255,107,107,0.18); border-color: rgba(255,107,107,0.4); }
+  .pc-rp-card-badge.tag--blue   { color: #5BA4F5; background: rgba(91,164,245,0.18);  border-color: rgba(91,164,245,0.4); }
+  .pc-rp-card-badge.tag--green  { color: #4CD97B; background: rgba(76,217,123,0.18);  border-color: rgba(76,217,123,0.4); }
+  .pc-rp-card-badge.tag--purple { color: #C77DFF; background: rgba(199,125,255,0.18); border-color: rgba(199,125,255,0.4); }
+  /* 이니셜 플레이스홀더 */
+  .pc-rp-card-initial {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -55%);
+    font-size: 38px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.15);
+    letter-spacing: -2px;
+    pointer-events: none;
+    user-select: none;
   }
   .pc-rp-card-co-overlay {
     position: absolute;
