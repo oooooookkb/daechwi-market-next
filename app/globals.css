@@ -1400,48 +1400,6 @@ a {
 /* ────────────────────────────
    CHAT REQUEST PAGE (/chat-request)
 ──────────────────────────── */
-.cr-page {
-  background: var(--bg);
-  min-height: 100vh;
-  padding-bottom: 80px;
-}
-
-.cr-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--navy);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 8px;
-  height: 46px;
-  box-shadow: 0 2px 12px rgba(11,29,58,0.25);
-}
-
-.cr-back {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  border-radius: 10px;
-  text-decoration: none;
-}
-
-.cr-header-title {
-  font-size: 15px;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: -0.4px;
-}
-
-.cr-hero {
-  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
-  padding: 22px 20px 24px;
-  border-bottom: 3px solid var(--gold);
-}
 
 .cr-live-badge {
   display: inline-flex;

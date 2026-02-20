@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import Header from "../components/Header";
+import NavTabs from "../components/NavTabs";
 import BottomNav from "../components/BottomNav";
 
 const loanTypes = ["소액급전", "월변대출", "무직자대출", "직장인대출", "사업자대출", "자동차담보", "부동산담보"];
@@ -26,18 +27,9 @@ export default function ChatRequestPage() {
 
   if (submitted) {
     return (
-      <div className="cr-page">
-        {/* 헤더 */}
-        <header className="cr-header">
-          <Link href="/realtime" className="cr-back">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6" />
-            </svg>
-          </Link>
-          <span className="cr-header-title">채팅 상담 요청</span>
-          <div style={{ width: 40 }} />
-        </header>
-
+      <>
+        <Header />
+        <NavTabs />
         <div className="cr-success">
           <div className="cr-success-emoji">🎉</div>
           <p className="cr-success-title">상담 요청이 등록됐어요!</p>
@@ -51,38 +43,32 @@ export default function ChatRequestPage() {
             <span className="cr-stag">💰 {amount}</span>
             <span className="cr-stag">📍 {region}</span>
           </div>
-          <Link href="/realtime" className="cr-go-btn">실시간 문의 확인하기</Link>
           <button className="cr-retry-btn" onClick={() => { setSubmitted(false); setLoanType([]); setJob(""); setAmount(""); setRegion(""); setMemo(""); setAgreed(false); }}>
             다시 요청하기
           </button>
         </div>
         <div className="spacer" />
         <BottomNav />
-      </div>
+      </>
     );
   }
 
   return (
-    <div className="cr-page">
-      {/* 헤더 */}
-      <header className="cr-header">
-        <Link href="/realtime" className="cr-back">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </Link>
-        <span className="cr-header-title">채팅 상담 요청</span>
-        <div style={{ width: 40 }} />
-      </header>
+    <>
+      <Header />
+      <NavTabs />
 
       {/* 히어로 */}
-      <div className="cr-hero">
-        <span className="cr-live-badge">🔴 실시간 상담 연결 중</span>
-        <h1 className="cr-hero-title">내 상황을 알려주면<br />맞는 업체가 바로 연락해요</h1>
-        <p className="cr-hero-sub">평균 응답시간 <b>3분 이내</b></p>
-      </div>
+      <section style={{ background: "#112A52", padding: "20px 20px 24px" }}>
+        <h1 style={{ fontSize: "22px", fontWeight: 900, color: "#fff", letterSpacing: "-0.8px", marginBottom: "6px" }}>
+          채팅 상담 요청
+        </h1>
+        <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.65)", fontWeight: 500 }}>
+          내 상황을 알려주면 맞는 업체가 바로 연락해요 · 평균 <b style={{ color: "#E8C97A" }}>3분</b> 이내
+        </p>
+      </section>
 
-      {/* 안내 카드 */}
+      {/* 안내 */}
       <div className="cr-notice">
         <span className="cr-notice-icon">💡</span>
         <p className="cr-notice-text">정확한 정보를 입력할수록 조건이 맞는 업체 연결 확률이 높아져요</p>
@@ -161,7 +147,7 @@ export default function ChatRequestPage() {
         </div>
         <textarea
           className="cr-memo"
-          placeholder="예: 신용등급 낮아도 가능한 곳, 당일 송금 원해요, 상환 기간 유연하게..."
+          placeholder="예: 신용등급 낮아도 가능한 곳, 당일 송금 원해요"
           value={memo}
           onChange={e => setMemo(e.target.value.slice(0, 500))}
           rows={3}
@@ -191,6 +177,6 @@ export default function ChatRequestPage() {
 
       <div className="spacer" />
       <BottomNav />
-    </div>
+    </>
   );
 }
