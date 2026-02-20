@@ -119,10 +119,11 @@ a {
    NAV TABS
 ──────────────────────────── */
 .nav {
-  background: var(--navy-mid);
+  background: #fff;
   overflow-x: auto;
   scrollbar-width: none;
   position: relative;
+  border-bottom: 1px solid #E8EAF0;
 }
 
 .nav::after {
@@ -133,7 +134,7 @@ a {
   display: block;
   width: 36px;
   height: 100%;
-  background: linear-gradient(to right, transparent, var(--navy-mid));
+  background: linear-gradient(to right, transparent, #fff);
   pointer-events: none;
   flex-shrink: 0;
 }
@@ -151,8 +152,8 @@ a {
   flex-shrink: 0;
   padding: 12px 11px;
   font-size: 12.5px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.6);
+  font-weight: 700;
+  color: #888;
   cursor: pointer;
   white-space: nowrap;
   border-bottom: 3px solid transparent;
@@ -165,13 +166,13 @@ a {
 }
 
 .nav-item:hover {
-  color: var(--gold-light);
+  color: #111;
 }
 
 .nav-item.active {
-  color: var(--gold-light);
-  border-bottom-color: var(--gold);
-  font-weight: 800;
+  color: #0B1D3A;
+  border-bottom-color: #0B1D3A;
+  font-weight: 900;
 }
 
 .badge {
