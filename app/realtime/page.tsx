@@ -4,6 +4,7 @@ import NavTabs from "../components/NavTabs";
 import BottomNav from "../components/BottomNav";
 import InfoSlider from "../components/InfoSlider";
 import RealtimeSection from "../components/RealtimeSection";
+import ChatRequestSection from "../components/ChatRequestSection";
 
 export const metadata: Metadata = {
   title: "실시간 대출상담 | 대출마켓",
@@ -24,6 +25,7 @@ export default function RealtimePage() {
         </p>
       </section>
       <InfoSlider />
+      <ChatRequestSection />
       <RealtimeSection />
       <div className="spacer"></div>
       <BottomNav />
