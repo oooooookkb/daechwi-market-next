@@ -78,13 +78,13 @@ export default function RealtimeSection() {
               <div className="realtime-left">
                 <p className="realtime-query">{item.query}</p>
                 <p className="realtime-meta">
+                  <span className="realtime-time">{timeAgo(item.created_at)}</span>
                   {item.nickname && (
                     <>
-                      <span className="realtime-nickname">{item.nickname}</span>
                       <span className="realtime-sep">·</span>
+                      <span className="realtime-nickname">{item.nickname}</span>
                     </>
                   )}
-                  <span className="realtime-time">{timeAgo(item.created_at)}</span>
                 </p>
               </div>
               <div className="realtime-right">
