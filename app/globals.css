@@ -64,8 +64,8 @@ a {
   display: grid;
   grid-template-columns: 44px 1fr 44px;
   align-items: center;
-  height: 58px;
-  padding: 0 14px;
+  height: 46px;
+  padding: 0 10px;
 }
 
 .h-btn {
