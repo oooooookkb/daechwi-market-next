@@ -10,7 +10,7 @@ export default function RealtimeHero() {
         지금 이 순간 올라오는 대출 문의를 확인하세요
       </p>
       <Link href="/chat-request" className="chat-open-btn">
-        💬 채팅 상담 요청하기
+        💬 실시간 상담등록
       </Link>
     </section>
   );
