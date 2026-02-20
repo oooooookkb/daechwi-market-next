@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const products = [
   "전체", "직장인대출", "무직자대출", "여성대출", "개인돈대출",
@@ -25,8 +26,9 @@ const allCards = [
 type Card = typeof allCards[0];
 
 function CardItem({ card }: { card: Card }) {
+  const router = useRouter();
   return (
-    <div className="card">
+    <div className="card" onClick={() => router.push(`/recommend/${card.id}`)} style={{ cursor: "pointer" }}>
       <div className="card-thumb">
         {card.thumb.split("\n").map((line, i) => (
           <span key={i}>{line}{i < card.thumb.split("\n").length - 1 && <br />}</span>
@@ -45,8 +47,15 @@ function CardItem({ card }: { card: Card }) {
         </div>
       </div>
       <div className="card-btns">
-        <button className="btn-detail">🔍 상세</button>
-        <button className="btn-call" onClick={() => alert("업체 연결 중...")}>📞 통화</button>
+        <button
+          className="btn-detail"
+          onClick={(e) => { e.stopPropagation(); router.push(`/recommend/${card.id}`); }}
+        >🔍 상세</button>
+        <a
+          href={`tel:${card.id === 1 ? "010-2365-1383" : "010-0000-0000"}`}
+          className="btn-call"
+          onClick={(e) => e.stopPropagation()}
+        >📞 통화</a>
       </div>
     </div>
   );

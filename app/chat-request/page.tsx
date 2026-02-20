@@ -33,7 +33,7 @@ export default function ChatRequestPage() {
     if (!canSubmit || loading) return;
     setLoading(true);
     const query = `${loanType.join(", ")} | ${job} | ${amount}${memo ? " | " + memo : ""}`;
-    await supabase.from("consultations").insert({
+    const { data } = await supabase.from("consultations").insert({
       query,
       region,
       amount,
@@ -41,9 +41,12 @@ export default function ChatRequestPage() {
       loan_types: loanType,
       memo,
       nickname,
-    });
+    }).select("id").single();
+    if (data?.id) {
+      localStorage.setItem("my_chat_id", String(data.id));
+    }
     setLoading(false);
-    router.push("/realtime");
+    router.push(`/chat/${data?.id}`);
   }
 
   return (

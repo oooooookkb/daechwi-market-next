@@ -1,12 +1,17 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 const companies = [
-  { name: "전국무방문 24시 당일입금", tag: "조건없이 빠르게 진행" },
-  { name: "전국무방문 24시 당일입금", tag: "무직자·저신용 OK" },
-  { name: "24시 비대면 월변대출", tag: "상담 후 송금 OK" },
-  { name: "소액 급전 당일송금", tag: "10만~300만원 소액" },
-  { name: "사업자 비대면대출", tag: "자영업·개인사업자 OK" },
+  { id: 1, name: "전국무방문 24시 당일입금", tag: "조건없이 빠르게 진행" },
+  { id: 2, name: "전국무방문 24시 당일입금", tag: "무직자·저신용 OK" },
+  { id: 3, name: "24시 비대면 월변대출", tag: "상담 후 송금 OK" },
+  { id: 5, name: "소액 급전 당일송금", tag: "10만~300만원 소액" },
+  { id: 6, name: "사업자 비대면대출", tag: "자영업·개인사업자 OK" },
 ];
 
 export default function CompanySection() {
+  const router = useRouter();
   return (
     <section className="company-section">
       <div className="company-header">
@@ -17,8 +22,13 @@ export default function CompanySection() {
       </div>
 
       <ul className="company-list">
-        {companies.map((company, i) => (
-          <li className="company-item" key={i}>
+        {companies.map((company) => (
+          <li
+            className="company-item"
+            key={company.id}
+            onClick={() => router.push(`/recommend/${company.id}`)}
+            style={{ cursor: "pointer" }}
+          >
             <div className="company-info">
               <span className="company-name">{company.name}</span>
               <span className="company-badge">N</span>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { supabase } from "../../lib/supabase";
 
 type Consultation = {
@@ -66,7 +67,7 @@ export default function RealtimeSection() {
 
       <div className="realtime-col-head">
         <span>다른 사람들의 대출 문의</span>
-        <span>지역 · 요청금액</span>
+        <span>요청금액</span>
       </div>
 
       {loading ? (
@@ -75,22 +76,29 @@ export default function RealtimeSection() {
         <ul className="realtime-list">
           {items.map((item) => (
             <li className="realtime-item" key={item.id}>
-              <div className="realtime-left">
-                <p className="realtime-query">{item.query}</p>
-                <p className="realtime-meta">
-                  <span className="realtime-time">{timeAgo(item.created_at)}</span>
-                  {item.nickname && (
-                    <>
-                      <span className="realtime-sep">·</span>
-                      <span className="realtime-nickname">{item.nickname}</span>
-                    </>
-                  )}
-                </p>
-              </div>
-              <div className="realtime-right">
-                <span className="realtime-region">{item.region}</span>
-                <span className="realtime-amount">{item.amount}</span>
-              </div>
+              <Link href={`/chat/${item.id}`} className="realtime-item-link">
+                <div className="realtime-left">
+                  <p className="realtime-query">{item.query}</p>
+                  <p className="realtime-meta">
+                    <span className="realtime-time">{timeAgo(item.created_at)}</span>
+                    {item.nickname && (
+                      <>
+                        <span className="realtime-sep">·</span>
+                        <span className="realtime-nickname">{item.nickname}</span>
+                      </>
+                    )}
+                    {item.region && (
+                      <>
+                        <span className="realtime-sep">·</span>
+                        <span className="realtime-region-inline">{item.region}</span>
+                      </>
+                    )}
+                  </p>
+                </div>
+                <div className="realtime-right">
+                  <span className="realtime-amount">{item.amount}</span>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
@@ -99,16 +107,8 @@ export default function RealtimeSection() {
       {/* 페이지네이션 */}
       {totalPages > 1 && (
         <div className="realtime-pagination">
-          <button
-            className="rt-page-btn"
-            disabled={page === 1}
-            onClick={() => setPage(1)}
-          >«</button>
-          <button
-            className="rt-page-btn"
-            disabled={page === 1}
-            onClick={() => setPage(p => p - 1)}
-          >‹</button>
+          <button className="rt-page-btn" disabled={page === 1} onClick={() => setPage(1)}>«</button>
+          <button className="rt-page-btn" disabled={page === 1} onClick={() => setPage(p => p - 1)}>‹</button>
 
           {Array.from({ length: totalPages }, (_, i) => i + 1)
             .filter(p => p === 1 || p === totalPages || Math.abs(p - page) <= 2)
@@ -129,16 +129,8 @@ export default function RealtimeSection() {
               )
             )}
 
-          <button
-            className="rt-page-btn"
-            disabled={page === totalPages}
-            onClick={() => setPage(p => p + 1)}
-          >›</button>
-          <button
-            className="rt-page-btn"
-            disabled={page === totalPages}
-            onClick={() => setPage(totalPages)}
-          >»</button>
+          <button className="rt-page-btn" disabled={page === totalPages} onClick={() => setPage(p => p + 1)}>›</button>
+          <button className="rt-page-btn" disabled={page === totalPages} onClick={() => setPage(totalPages)}>»</button>
         </div>
       )}
     </section>

@@ -32,20 +32,6 @@ export default function RecommendPage() {
             background: "linear-gradient(90deg, #C9A84C, transparent)",
           }}
         ></div>
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "6px",
-            background: "rgba(201,168,76,0.15)",
-            border: "1px solid rgba(201,168,76,0.3)",
-            borderRadius: "20px",
-            padding: "4px 12px",
-            marginBottom: "12px",
-          }}
-        >
-          <span style={{ fontSize: "12px", color: "#E8C97A", fontWeight: 700 }}>⭐ 오늘의 추천</span>
-        </div>
         <h1 style={{ fontSize: "22px", fontWeight: 900, color: "#fff", letterSpacing: "-0.8px", marginBottom: "6px" }}>
           오늘의 <span style={{ color: "#E8C97A" }}>추천업체</span>
         </h1>

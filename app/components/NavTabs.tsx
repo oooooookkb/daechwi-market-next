@@ -9,7 +9,6 @@ const navItems = [
   { label: "상품별 업체찾기", href: "/product" },
   { label: "오늘의 추천업체", href: "/recommend" },
   { label: "사기번호조회", href: "/scam-check" },
-  { label: "이용후기", href: "/reviews" },
 ];
 
 export default function NavTabs() {

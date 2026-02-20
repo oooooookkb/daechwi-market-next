@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Header from "../components/Header";
 import NavTabs from "../components/NavTabs";
 import BottomNav from "../components/BottomNav";
@@ -18,6 +19,7 @@ const allCompanies = [
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
+  const router = useRouter();
 
   const results = query.trim().length > 0
     ? allCompanies.filter(c =>
@@ -68,7 +70,7 @@ export default function SearchPage() {
                 <strong style={{ color: "#0B1D3A" }}>&#39;{query}&#39;</strong> 검색결과 {results.length}건
               </p>
               {results.map(c => (
-                <div key={c.id} style={{
+                <div key={c.id} onClick={() => router.push(`/recommend/${c.id}`)} style={{
                   display: "flex", alignItems: "center", padding: "14px 16px",
                   borderBottom: "1px solid #F2F3F8", cursor: "pointer", gap: "12px",
                 }}>

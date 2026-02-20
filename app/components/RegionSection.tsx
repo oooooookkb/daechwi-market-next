@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const regions = ["전체", "서울", "경기", "인천", "대전", "대구", "부산", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
 const products = [
@@ -27,8 +28,9 @@ const allCards = [
 type Card = typeof allCards[0];
 
 function CardItem({ card }: { card: Card }) {
+  const router = useRouter();
   return (
-    <div className="card">
+    <div className="card" onClick={() => router.push(`/recommend/${card.id}`)} style={{ cursor: "pointer" }}>
       <div className="card-thumb" style={{ background: `linear-gradient(160deg, ${card.color} 0%, #1E4A8A 100%)` }}>
         <span className="card-thumb-badge">{card.badge}</span>
         <span className="card-thumb-co">{card.company}</span>
@@ -46,8 +48,15 @@ function CardItem({ card }: { card: Card }) {
         </div>
       </div>
       <div className="card-btns">
-        <button className="btn-detail">🔍 상세</button>
-        <button className="btn-call" onClick={() => alert("업체 연결 중...")}>📞 통화</button>
+        <button
+          className="btn-detail"
+          onClick={(e) => { e.stopPropagation(); router.push(`/recommend/${card.id}`); }}
+        >🔍 상세</button>
+        <a
+          href={`tel:${card.id === 1 ? "010-2365-1383" : "010-0000-0000"}`}
+          className="btn-call"
+          onClick={(e) => e.stopPropagation()}
+        >📞 통화</a>
       </div>
     </div>
   );

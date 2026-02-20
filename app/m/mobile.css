@@ -1,0 +1,90 @@
+/* ── 모바일 전용 페이지 (/m) ──
+   PC CSS(@media min-width:1024px)를 모두 무력화합니다.
+*/
+
+/* PC 전용 요소 완전 숨김 */
+.pc-util-bar,
+.pc-main-header,
+.pc-gnb,
+.hero-counter-bar,
+.pc3col-wrap,
+.pc-region-rt-wrap,
+.pc-comm-wrap,
+.pc-footer,
+.pc-only {
+  display: none !important;
+}
+
+/* 모바일 전용 요소 강제 표시 */
+.mobile-only {
+  display: block !important;
+}
+
+/* 히어로 — 모바일 원래대로 */
+.hero {
+  min-height: 160px !important;
+  padding: 0 !important;
+}
+
+/* 카드 그리드 — 2열 */
+.cards-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 0 !important;
+  max-width: 100% !important;
+}
+
+/* 카드 — 모바일 크기 복원 */
+.card-thumb {
+  height: 80px !important;
+}
+.card-body {
+  padding: 10px 10px 4px !important;
+}
+.card-title {
+  font-size: 13px !important;
+}
+.card-desc {
+  font-size: 12px !important;
+}
+.btn-detail,
+.btn-call {
+  font-size: 12px !important;
+  padding: 8px 4px !important;
+}
+
+/* 헤더 표시 */
+.header {
+  display: flex !important;
+}
+.nav {
+  display: block !important;
+}
+
+/* 하단 네비 */
+.bnav {
+  display: flex !important;
+}
+.spacer {
+  display: block !important;
+  height: 80px;
+}
+
+/* 통계섹션 */
+.stats {
+  display: block !important;
+}
+.stats-section {
+  max-width: 100% !important;
+}
+
+/* cards-section 헤더 */
+.cards-section {
+  max-width: 100% !important;
+}
+.section-head {
+  display: block !important;
+}
+.cards-section-head {
+  display: none !important;
+}
