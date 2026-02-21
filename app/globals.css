@@ -3813,11 +3813,19 @@ a {
   color: #E07B00;
 }
 
-/* 부가설명 카드 내부 하단 배너 — 좌우 패딩 없이 카드 끝까지 */
+/* 부가설명 카드 내부 하단 — 작은 인라인 스타일 */
 .detail-promo-banner--bottom {
-  margin: 12px -14px -14px;
-  border-top: 1px solid #FFE0B2;
-  border-radius: 0 0 0 0;
+  margin: 10px 0 0;
+  background: transparent;
+  border-top: 1px dashed #F0C07A;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding: 9px 0 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: #B86A00;
+  gap: 5px;
 }
 
 /* ── 상세 타이틀 바 (히어로 제거 후) ── */
