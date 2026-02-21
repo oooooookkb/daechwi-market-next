@@ -3455,6 +3455,11 @@ a {
   padding: 20px 18px 8px;
 }
 
+/* 타이틀 바 바로 아래 첫 카드는 마진 없이 연결 */
+.detail-title-bar + .detail-card {
+  margin-top: 0;
+}
+
 .detail-card-title {
   display: flex;
   align-items: center;
@@ -3795,7 +3800,7 @@ a {
   gap: 6px;
   padding: 12px 14px 10px;
   background: #fff;
-  border-bottom: 1px solid #ECEEF4;
+  border-bottom: none;       /* 구분선 제거 */
 }
 
 .detail-back-sm {
