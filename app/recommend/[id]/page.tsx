@@ -456,19 +456,13 @@ export default function CardDetailPage() {
 
           {/* 대부중개 플랫폼 협의회 배너 */}
           <div className="detail-lpa-banner">
-            <div className="detail-lpa-left">
-              <div className="detail-lpa-logo">
-                <span className="detail-lpa-badge">LpA</span>
-                <div>
-                  <p className="detail-lpa-name">대부중개 플랫폼 협의회</p>
-                  <p className="detail-lpa-sub">Loan Platform Association</p>
-                </div>
+            <div className="detail-lpa-logo">
+              <span className="detail-lpa-badge">LpA</span>
+              <div>
+                <p className="detail-lpa-name">대부중개 플랫폼 협의회</p>
+                <p className="detail-lpa-sub">Loan Platform Association</p>
               </div>
             </div>
-            <a href="https://www.loanplatform.or.kr" target="_blank" rel="noopener noreferrer" className="detail-lpa-link">
-              홈페이지 바로가기
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </a>
           </div>
 
           {/* 기관 로고 */}

@@ -4456,13 +4456,12 @@ a {
 .detail-lpa-banner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   background: #fff;
   padding: 14px 18px;
   border-top: 1px solid #E8EAF0;
   border-bottom: 1px solid #E8EAF0;
 }
-.detail-lpa-left { display: flex; align-items: center; }
 .detail-lpa-logo { display: flex; align-items: center; gap: 10px; }
 .detail-lpa-badge {
   background: #1B3A6B;
