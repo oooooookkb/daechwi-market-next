@@ -4498,26 +4498,33 @@ a {
 }
 .detail-lpa-link:hover { background: #F5F7FC; }
 
-/* ── 기관 로고 ── */
+/* ── 기관 로고 자동 슬라이드 ── */
+@keyframes org-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 .detail-org-logos {
-  display: flex;
-  align-items: center;
-  overflow-x: auto;
+  overflow: hidden;
   background: #fff;
   padding: 10px 0;
   border-bottom: 1px solid #E8EAF0;
-  scrollbar-width: none;
+  position: relative;
 }
-.detail-org-logos::-webkit-scrollbar { display: none; }
+.detail-org-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: org-scroll 14s linear infinite;
+}
+.detail-org-track:hover { animation-play-state: paused; }
 .detail-org-item {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 14px;
+  padding: 6px 20px;
   border-right: 1px solid #E0E2E8;
   flex-shrink: 0;
 }
-.detail-org-item:last-child { border-right: none; }
 .detail-org-img {
   height: 22px;
   width: auto;
