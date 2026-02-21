@@ -430,6 +430,38 @@ export default function CardDetailPage() {
             <RegionSection hideCards />
           </div>
 
+          {/* 고객센터 / 계좌 섹션 */}
+          <div className="detail-cs-section">
+            <div className="detail-cs-box">
+              <p className="detail-cs-label">CUSTOMER</p>
+              <p className="detail-cs-number">070-1234-5678</p>
+              <p className="detail-cs-info">상담가능시간 평일 10:00 - 17:00<br />점심시간 12:30 - 13:30<br />주말·공휴일 휴무</p>
+              <a href="tel:07012345678" className="detail-cs-btn">📞 고객센터 연결</a>
+            </div>
+            <div className="detail-cs-divider" />
+            <div className="detail-cs-box">
+              <p className="detail-cs-label">ACCOUNT</p>
+              <p className="detail-cs-bank">🏦 국민은행</p>
+              <p className="detail-cs-number">000000-00-000000</p>
+              <p className="detail-cs-info">예금주: 대출마켓<br />이메일: info@daechwi.com</p>
+              <a href="mailto:info@daechwi.com" className="detail-cs-btn">💬 이메일 문의</a>
+            </div>
+          </div>
+
+          {/* 하단 법적 고지 */}
+          <div className="detail-legal-footer">
+            <p>대출마켓은 대부중개 플랫폼으로 직접 대출을 취급하지 않습니다.</p>
+            <div className="detail-legal-links">
+              <a href="#">이용약관</a>
+              <span>|</span>
+              <a href="#">개인정보처리방침</a>
+              <span>|</span>
+              <a href="#">책임한계와법적고지</a>
+              <span>|</span>
+              <a href="#">오류신고</a>
+            </div>
+          </div>
+
         </div>
 
         {/* 하단 고정 CTA 바 (대출나라 벤치마킹) */}
