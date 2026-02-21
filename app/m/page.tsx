@@ -35,15 +35,16 @@ export default function MobilePage() {
         }} />
         {/* 텍스트 */}
         <div style={{ position: "relative", zIndex: 1 }}>
-          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", marginBottom: 6, letterSpacing: "-0.2px" }}>
-            사기번호 조회 지원 · 정식 등록업체만 입점
+          <p style={{ fontSize: 11, color: "rgba(255,255,255,0.7)", marginBottom: 8, letterSpacing: "0.3px", fontWeight: 600, textTransform: "uppercase" }}>
+            ✔ 정식 등록업체만 입점 &nbsp;|&nbsp; ✔ 사기번호 조회 연동
           </p>
-          <h1 style={{ fontSize: 22, fontWeight: 900, lineHeight: 1.35, letterSpacing: "-0.5px", marginBottom: 6 }}>
-            사기업체는 걸러내고<br />
-            <em style={{ color: "#F5A623", fontStyle: "normal" }}>정식 등록업체</em>만 연결합니다
+          <h1 style={{ fontSize: 21, fontWeight: 900, lineHeight: 1.4, letterSpacing: "-0.5px", marginBottom: 10 }}>
+            믿을 수 있는 업체만<br />
+            <em style={{ color: "#F5A623", fontStyle: "normal" }}>직접 검증</em>하여 연결합니다
           </h1>
-          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", lineHeight: 1.5 }}>
-            사기번호 조회 + 정식업체 인증 — 안전한 대출 비교의 시작
+          <p style={{ fontSize: 12, color: "rgba(255,255,255,0.75)", lineHeight: 1.6, borderLeft: "3px solid #F5A623", paddingLeft: 10 }}>
+            전국 254개 공식 등록 대부업체 · 중개수수료 없음<br />
+            24시간 빠른 상담 연결
           </p>
         </div>
       </div>
