@@ -81,6 +81,7 @@ a {
   z-index: 200;
   background: var(--navy);
   box-shadow: 0 2px 16px rgba(11,29,58,0.25);
+  overflow: hidden;
 }
 
 /* 1층: 등록번호 바 */
@@ -101,6 +102,7 @@ a {
   justify-content: space-between;
   height: 50px;
   padding: 0 8px;
+  background: var(--navy);
 }
 
 .h-left-btns {
@@ -154,6 +156,7 @@ a {
   font-weight: 900;
   letter-spacing: -0.5px;
   color: #FFFFFF;
+  white-space: nowrap;
 }
 
 .logo-tag {
