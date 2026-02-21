@@ -3685,6 +3685,146 @@ a {
 }
 .detail-list-btn:hover { opacity: 0.88; }
 
+/* ── 주요 특징 아이콘 그리드 ── */
+.detail-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-bottom: 8px;
+}
+
+.detail-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #F5F7FC;
+  border: 1px solid #E8EAF0;
+  padding: 11px 12px;
+  border-left: 3px solid var(--gold);
+}
+
+.detail-feature-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.detail-feature-text {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.3px;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+
+/* ── 다른 업체 추천 섹션 ── */
+.detail-related {
+  background: #fff;
+  margin: 8px 0 0;
+  padding: 20px 18px 12px;
+}
+
+.detail-related-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 14px;
+  letter-spacing: -0.4px;
+}
+
+.detail-related-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.detail-related-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #F0F1F5;
+  cursor: pointer;
+  transition: background .15s;
+}
+.detail-related-item:last-child { border-bottom: none; }
+.detail-related-item:active { background: #F7F8FC; }
+
+.detail-related-badge {
+  background: var(--navy);
+  color: var(--gold-light);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: -0.2px;
+}
+
+.detail-related-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.detail-related-company {
+  font-size: 11px;
+  color: #999;
+  font-weight: 500;
+  margin-bottom: 2px;
+  letter-spacing: -0.2px;
+}
+
+.detail-related-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: -0.4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── 하단 고정 CTA 바 ── */
+.detail-sticky-bar {
+  position: fixed;
+  bottom: 60px;          /* BottomNav 위 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  z-index: 300;
+  box-shadow: 0 -4px 20px rgba(11,29,58,0.18);
+}
+
+.detail-sticky-sms,
+.detail-sticky-call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 15px 0;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  transition: opacity .15s;
+}
+.detail-sticky-sms:hover,
+.detail-sticky-call:hover { opacity: 0.88; }
+
+.detail-sticky-sms {
+  background: var(--navy-mid);
+  color: #fff;
+}
+
+.detail-sticky-call {
+  background: var(--gold);
+  color: var(--navy);
+}
+
 /* ════════════════════════════════════════
    PC 뷰 (1024px 이상)
    ════════════════════════════════════════ */
