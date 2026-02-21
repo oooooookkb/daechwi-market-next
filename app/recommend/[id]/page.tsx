@@ -9,6 +9,7 @@ import PcHeader from "../../components/PcHeader";
 import PcFooter from "../../components/PcFooter";
 import PcDetailPage from "../../components/PcDetailPage";
 import allCards from "../../data/cards";
+import RegionSection from "../../components/RegionSection";
 
 const cards = [
   {
@@ -444,6 +445,11 @@ export default function CardDetailPage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* 지역별/상품별 업체찾기 */}
+          <div className="detail-region-section">
+            <RegionSection hideCards />
           </div>
 
           <div className="detail-footer">

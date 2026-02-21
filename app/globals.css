@@ -4329,6 +4329,69 @@ a {
   text-overflow: ellipsis;
 }
 
+/* ── 상세페이지 지역별/상품별 찾기 섹션 ── */
+.detail-region-section {
+  background: #fff;
+  margin-top: 8px;
+  border-top: 6px solid #E8EAF0;
+}
+.detail-region-section .region-section {
+  padding: 0;
+  background: #fff;
+}
+.detail-region-section .region-tabs {
+  display: flex;
+  border-bottom: 2px solid #E8EAF0;
+}
+.detail-region-section .region-tab {
+  flex: 1;
+  padding: 13px 0;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-align: center;
+  color: #999;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -2px;
+  letter-spacing: -0.3px;
+}
+.detail-region-section .region-tab.active {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+.detail-region-section .region-grid {
+  padding: 14px 16px 16px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px 6px;
+}
+.detail-region-section .region-grid--product {
+  grid-template-columns: repeat(4, 1fr);
+}
+.detail-region-section .region-btn {
+  font-size: 12px;
+  padding: 7px 4px;
+  text-align: center;
+  border: 1.5px solid #DDE1EC;
+  border-radius: 6px;
+  background: #fff;
+  color: #555;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  display: block;
+  letter-spacing: -0.2px;
+}
+.detail-region-section .region-btn.active {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+  font-weight: 700;
+}
+
 /* ── 하단 고정 CTA 바 ── */
 .detail-sticky-bar {
   position: fixed;
