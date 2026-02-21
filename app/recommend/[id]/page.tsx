@@ -486,7 +486,9 @@ export default function CardDetailPage() {
           {/* 하단 메뉴 링크 */}
           <div className="detail-footer-menu">
             <a href="#">회사소개</a><span>|</span>
+            <a href="#">업체로그인</a><span>|</span>
             <a href="#">이용안내</a><span>|</span>
+            <a href="#">PC화면보기</a><span>|</span>
             <a href="#">전체메뉴</a>
           </div>
 
