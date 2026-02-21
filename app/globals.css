@@ -3944,31 +3944,23 @@ a {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 11px 8px;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 11px 12px;
   border: 1.5px solid #E07B00;
   border-radius: 6px;
   background: #fff;
   color: #E07B00;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   letter-spacing: -0.3px;
   cursor: pointer;
   transition: background .15s;
   word-break: keep-all;
-  text-align: center;
   line-height: 1.3;
 }
 .detail-expand-btn:active {
   background: #FFF5E6;
-}
-
-.detail-expand-plus {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1;
-  color: #E07B00;
 }
 
 /* ── 업체정보 상세보기 모달 ── */
