@@ -4099,6 +4099,75 @@ a {
 }
 .modal-close-btn:active { background: #444; }
 
+/* ── 주의사항 모달 리스트 ── */
+.modal-warning-list {
+  list-style: none;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-warning-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #F0F2F5;
+}
+.modal-warning-item:last-child { border-bottom: none; }
+
+.modal-warning-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  background: #555;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.modal-warning-text {
+  font-size: 13.5px;
+  color: #222;
+  line-height: 1.55;
+  letter-spacing: -0.3px;
+  word-break: keep-all;
+}
+
+.modal-warning-text.highlight {
+  color: #E07B00;
+  font-weight: 600;
+}
+
+.modal-warning-sub {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.modal-scam-btn {
+  display: block;
+  width: 100%;
+  padding: 17px;
+  background: #E07B00;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  transition: background .15s;
+  flex-shrink: 0;
+}
+.modal-scam-btn:active { background: #C96B00; }
+
 /* ── 주요 특징 아이콘 그리드 ── */
 .detail-features-grid {
   display: grid;

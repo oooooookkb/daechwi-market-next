@@ -94,6 +94,7 @@ export default function CardDetailPage() {
   const card = cards.find(c => c.id === Number(id));
 
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const [showWarningModal, setShowWarningModal] = useState(false);
 
   // 다른 업체 추천 (현재 업체 제외, 최대 3개)
   const relatedCards = allCards.filter(c => c.id !== Number(id)).slice(0, 3);
@@ -272,7 +273,7 @@ export default function CardDetailPage() {
           {/* 업체정보 상세보기 | 대출시 주의사항 버튼 */}
           <div className="detail-expand-btns">
             <button className="detail-expand-btn" onClick={() => setShowInfoModal(true)}>업체정보 상세보기 <span className="detail-expand-plus">+</span></button>
-            <button className="detail-expand-btn">대출시 주의사항 <span className="detail-expand-plus">+</span></button>
+            <button className="detail-expand-btn" onClick={() => setShowWarningModal(true)}>대출시 주의사항 <span className="detail-expand-plus">+</span></button>
           </div>
 
           {/* 업체정보 상세보기 모달 */}
@@ -315,6 +316,45 @@ export default function CardDetailPage() {
                   <p className="modal-notice">📢 대출마켓을 보고 연락드렸다고 말씀해주세요</p>
                 </div>
                 <button className="modal-close-btn" onClick={() => setShowInfoModal(false)}>창닫기</button>
+              </div>
+            </div>
+          )}
+
+          {/* 대출시 주의사항 모달 */}
+          {showWarningModal && (
+            <div className="modal-overlay" onClick={() => setShowWarningModal(false)}>
+              <div className="modal-sheet" onClick={e => e.stopPropagation()}>
+                <div className="modal-header">
+                  <span className="modal-title">대출거래 시 주의사항</span>
+                  <button className="modal-close" onClick={() => setShowWarningModal(false)}>✕</button>
+                </div>
+                <div className="modal-body">
+                  <ul className="modal-warning-list">
+                    {[
+                      { text: "대출 상담시 본인이 대출한 업체를 잊지않기 위해 정확히 해당업체 상호명, 연락처 등 꼭 메모·저장 하시기 바랍니다.", sub: "(업체상호명, 연락처 등 대출마켓 홈페이지에서 검색 가능)", highlight: false },
+                      { text: "대출을 목적으로 첫거래 고금리 대출(급전)을 강요하고 기타 수수료를 입금 후 월변등으로 한도를 높여주는 조건은 사기행위입니다.", sub: "", highlight: true },
+                      { text: "대출마켓 담당자를 사칭하여 대출상담 및 대출을 권유하는 경우 절대 거래 응하지 마시기 바랍니다.", sub: "(대출마켓은 직접적인 대출 및 알선/중개를 하지 않습니다.)", highlight: false },
+                      { text: "대면 미팅 명목으로 고객에게 출장비(거마비) 요구는 사기행위입니다.", sub: "", highlight: true },
+                      { text: "대출 알선 또는 대출 처리 비용 (공증비) 명목으로 고객에게 수수료, 선이자, 선입금 요구는 사기행위입니다.", sub: "", highlight: true },
+                      { text: "법적 최대 연 이자율은 20% 입니다. (추가, 수수료 비용 포함) 이자율 초과하여 수취 및 요구는 사기행위입니다.", sub: "", highlight: false },
+                      { text: "위임장, 인감증명서, 신분증 등 개인 정보가 담긴 중요 서류를 보낼 때는 업체 정보를 (상호,연락처) 다시 한번 확인하고 신중을 기해야 합니다.", sub: "", highlight: false },
+                      { text: "공인인증서 (ID, 비밀번호, OTP) 정보 요구시 절대 응하지 마시기 바랍니다.", sub: "", highlight: false },
+                      { text: "휴대폰, 통장, 신용카드, 체크카드 매매 혹은 양도 요구시 절대 응하지 마시기 바랍니다.", sub: "(대포통장, 대포폰 사기범행에 이용 될 수 있습니다.)", highlight: true },
+                      { text: "대출채권 추심자가 소속과 성명을 밝히지 않거나, 확인되지 않는 채권에 대해 일방적 변제 요구 시 절대 응하지 마시기 바랍니다.", sub: "", highlight: false },
+                      { text: "각종 연락처, SNS(텔레그램, 카톡 등)로 접근하여 얼굴 및 신체 사진을 요구하는 경우 절대 응하지 마시길 바랍니다.", sub: "", highlight: true },
+                    ].map((item, i) => (
+                      <li key={i} className="modal-warning-item">
+                        <span className="modal-warning-num">{i + 1}</span>
+                        <span className={`modal-warning-text${item.highlight ? " highlight" : ""}`}>
+                          {item.text}
+                          {item.sub && <span className="modal-warning-sub"><br />{item.sub}</span>}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a href="/scam-check" className="modal-scam-btn">사칭및사기피해번호더보기 »</a>
+                <button className="modal-close-btn" onClick={() => setShowWarningModal(false)}>창닫기</button>
               </div>
             </div>
           )}
