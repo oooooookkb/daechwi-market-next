@@ -4,11 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { label: "실시간대출상담", href: "/realtime" },
   { label: "지역별 업체찾기", href: "/region" },
   { label: "상품별 업체찾기", href: "/product" },
   { label: "오늘의 추천업체", href: "/recommend" },
-  { label: "사기번호조회", href: "/scam-check" },
+  { label: "사기번호검색", href: "/scam-check" },
+  { label: "실시간대출상담", href: "/realtime" },
 ];
 
 export default function NavTabs() {
