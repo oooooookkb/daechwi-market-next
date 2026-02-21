@@ -229,28 +229,6 @@ export default function CardDetailPage() {
             </a>
           </div>
 
-          {/* 상품 특징 아이콘 카드 */}
-          <div className="detail-card">
-            <div className="detail-card-title">
-              <span className="detail-card-title-bar" />
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E07B00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-              </svg>
-              주요 특징
-            </div>
-            <div className="detail-features-grid">
-              {(card.features || []).map((feat, i) => {
-                const icons = ["✅", "⚡", "🏦", "📋"];
-                return (
-                  <div className="detail-feature-item" key={i}>
-                    <span className="detail-feature-icon">{icons[i % icons.length]}</span>
-                    <span className="detail-feature-text">{feat}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
           {/* 상품정보 — 2쌍 4열 테이블 */}
           <div className="detail-card">
             <div className="detail-card-title">
