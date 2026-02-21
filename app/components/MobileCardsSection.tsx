@@ -3,17 +3,6 @@
 import { useRouter } from "next/navigation";
 import allCards from "../data/cards";
 
-const tagColorMap: Record<string, string> = {
-  red:    "#0B2347",
-  orange: "#12284A",
-  blue:   "#0D2240",
-  yellow: "#0B2347",
-  purple: "#122B50",
-  green:  "#0D2240",
-  pink:   "#1a1a3e",
-  navy:   "#0a1a30",
-};
-
 const cards = allCards.slice(0, 6);
 
 export default function MobileCardsSection() {
@@ -32,12 +21,16 @@ export default function MobileCardsSection() {
             onClick={() => router.push(`/recommend/${card.id}`)}
             style={{ cursor: "pointer" }}
           >
+            {/* PC와 동일하게 실제 이미지 배경 사용 */}
             <div
               className="card-thumb"
-              style={{ background: `linear-gradient(160deg, ${tagColorMap[card.tagColor] ?? "#0B2347"} 0%, #1E4A8A 100%)` }}
+              style={{
+                backgroundImage: `url(${card.img})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
-              <span className="card-thumb-badge">{card.badge}</span>
-              <span className="card-thumb-co">{card.company}</span>
+              <span className={`pc-card-tag tag--${card.tagColor}`}>{card.badge}</span>
             </div>
             <div className="card-body">
               <div className="card-title">{card.title}</div>
