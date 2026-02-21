@@ -494,13 +494,15 @@ export default function CardDetailPage() {
           <div className="detail-legal-footer">
             <p>대출마켓은 대부중개 플랫폼으로 직접 대출을 취급하지 않습니다.</p>
             <div className="detail-legal-links">
-              <a href="#">이용약관</a>
+              <a href="/policy">이용약관</a>
               <span>|</span>
-              <a href="#">개인정보처리방침</a>
+              <a href="/policy" className="detail-legal-bold">개인정보처리방침</a>
               <span>|</span>
-              <a href="#">책임한계와법적고지</a>
+              <a href="/duty">책임한계와법적고지</a>
               <span>|</span>
-              <a href="#">오류신고</a>
+              <a href="/duty">주의사항</a>
+              <span>|</span>
+              <a href="mailto:info@daechwi.com">오류신고</a>
             </div>
           </div>
 
