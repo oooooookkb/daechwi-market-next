@@ -1186,16 +1186,11 @@ a {
 }
 
 .region-btn::before {
-  content: '·';
-  color: var(--gold);
-  margin-right: 2px;
-  font-size: 14px;
-  vertical-align: middle;
+  display: none;
 }
 
 .region-btn:first-child::before {
-  content: '';
-  margin: 0;
+  display: none;
 }
 
 .region-btn.active {
