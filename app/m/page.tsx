@@ -35,10 +35,10 @@ export default function MobilePage() {
         }} />
         {/* 텍스트 */}
         <div style={{ position: "relative", zIndex: 1 }}>
-          <p style={{ fontSize: 11, color: "rgba(255,255,255,0.7)", marginBottom: 8, letterSpacing: "0.3px", fontWeight: 600, textTransform: "uppercase" }}>
-            ✔ 정식 등록업체만 입점 &nbsp;|&nbsp; ✔ 사기번호 조회 연동
+          <p style={{ fontSize: 11, color: "rgba(255,255,255,0.7)", marginBottom: 8, letterSpacing: "0.3px", fontWeight: 600 }}>
+            ✔ 금융감독원 등록업체만 입점 &nbsp;|&nbsp; ✔ 중개수수료 없음
           </p>
-          <h1 style={{ fontSize: 21, fontWeight: 900, lineHeight: 1.4, letterSpacing: "-0.5px", marginBottom: 10 }}>
+          <h1 style={{ fontSize: 21, fontWeight: 900, lineHeight: 1.4, letterSpacing: "-0.3px", marginBottom: 10, fontFamily: "'Noto Serif KR', serif", textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}>
             믿을 수 있는 업체만<br />
             <em style={{ color: "#F5A623", fontStyle: "normal" }}>직접 검증</em>하여 연결합니다
           </h1>

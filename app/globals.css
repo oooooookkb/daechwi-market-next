@@ -706,18 +706,19 @@ a {
 
 .card-title {
   font-size: 15px;
-  font-weight: 800;
-  color: #111;
-  margin-bottom: 4px;
-  letter-spacing: -0.2px;
+  font-weight: 900;
+  color: #0B1D3A;
+  margin-bottom: 5px;
+  letter-spacing: -0.3px;
   line-height: 1.4;
 }
 
 .card-desc {
-  font-size: 13px;
-  color: #555;
-  line-height: 1.6;
+  font-size: 12.5px;
+  color: #444;
+  line-height: 1.7;
   margin-bottom: 8px;
+  font-weight: 500;
 }
 
 .card-footer {
@@ -796,10 +797,10 @@ a {
   height: 34px;
   border-radius: 0;
   border: none;
-  background: #0B1D3A;
+  background: #F5A623;
   font-size: 11.5px;
-  font-weight: 700;
-  color: white;
+  font-weight: 800;
+  color: #0B1D3A;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -810,7 +811,7 @@ a {
 }
 
 .btn-call:hover {
-  background: #1A3A6B;
+  background: #e09510;
 }
 
 /* ────────────────────────────
