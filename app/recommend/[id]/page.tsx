@@ -349,17 +349,17 @@ export default function CardDetailPage() {
                 <div className="modal-body">
                   <ul className="modal-warning-list">
                     {[
-                      { text: "대출 상담시 본인이 대출한 업체를 잊지않기 위해 정확히 해당업체 상호명, 연락처 등 꼭 메모·저장 하시기 바랍니다.", sub: "(업체상호명, 연락처 등 대출마켓 홈페이지에서 검색 가능)", highlight: false },
-                      { text: "대출을 목적으로 첫거래 고금리 대출(급전)을 강요하고 기타 수수료를 입금 후 월변등으로 한도를 높여주는 조건은 사기행위입니다.", sub: "", highlight: true },
-                      { text: "대출마켓 담당자를 사칭하여 대출상담 및 대출을 권유하는 경우 절대 거래 응하지 마시기 바랍니다.", sub: "(대출마켓은 직접적인 대출 및 알선/중개를 하지 않습니다.)", highlight: false },
-                      { text: "대면 미팅 명목으로 고객에게 출장비(거마비) 요구는 사기행위입니다.", sub: "", highlight: true },
-                      { text: "대출 알선 또는 대출 처리 비용 (공증비) 명목으로 고객에게 수수료, 선이자, 선입금 요구는 사기행위입니다.", sub: "", highlight: true },
-                      { text: "법적 최대 연 이자율은 20% 입니다. (추가, 수수료 비용 포함) 이자율 초과하여 수취 및 요구는 사기행위입니다.", sub: "", highlight: false },
-                      { text: "위임장, 인감증명서, 신분증 등 개인 정보가 담긴 중요 서류를 보낼 때는 업체 정보를 (상호,연락처) 다시 한번 확인하고 신중을 기해야 합니다.", sub: "", highlight: false },
-                      { text: "공인인증서 (ID, 비밀번호, OTP) 정보 요구시 절대 응하지 마시기 바랍니다.", sub: "", highlight: false },
-                      { text: "휴대폰, 통장, 신용카드, 체크카드 매매 혹은 양도 요구시 절대 응하지 마시기 바랍니다.", sub: "(대포통장, 대포폰 사기범행에 이용 될 수 있습니다.)", highlight: true },
-                      { text: "대출채권 추심자가 소속과 성명을 밝히지 않거나, 확인되지 않는 채권에 대해 일방적 변제 요구 시 절대 응하지 마시기 바랍니다.", sub: "", highlight: false },
-                      { text: "각종 연락처, SNS(텔레그램, 카톡 등)로 접근하여 얼굴 및 신체 사진을 요구하는 경우 절대 응하지 마시길 바랍니다.", sub: "", highlight: true },
+                      { text: "상담한 업체의 상호명과 연락처는 반드시 메모해두세요.", sub: "(대출마켓에서 등록업체 정보를 언제든 다시 확인할 수 있습니다.)", highlight: false },
+                      { text: "첫 거래에 고금리 급전을 요구하거나, 수수료 입금 후 한도를 올려준다는 조건은 100% 사기입니다.", sub: "", highlight: true },
+                      { text: "대출마켓 직원을 사칭해 대출을 권유하는 경우 즉시 거래를 중단하세요.", sub: "(대출마켓은 직접 대출·알선·중개를 하지 않습니다.)", highlight: false },
+                      { text: "대면 미팅을 유도하며 출장비·거마비를 요구하면 사기입니다.", sub: "", highlight: true },
+                      { text: "공증비·수수료·선이자·선입금 등 어떤 명목의 선불 비용 요구도 사기입니다.", sub: "", highlight: true },
+                      { text: "법정 최고 이자율은 연 20%입니다. 이를 초과하는 이자·수수료를 요구하면 거부하세요.", sub: "", highlight: false },
+                      { text: "서류(위임장·인감증명서·신분증 등)를 보내기 전, 업체 상호와 연락처를 반드시 재확인하세요.", sub: "", highlight: false },
+                      { text: "공인인증서·ID·비밀번호·OTP 등 인증 정보는 절대 제공하지 마세요.", sub: "", highlight: false },
+                      { text: "휴대폰·통장·카드 매매 또는 양도 요구는 범죄에 악용될 수 있으니 즉시 거절하세요.", sub: "(대포통장·대포폰 사기에 이용될 수 있습니다.)", highlight: true },
+                      { text: "채권 추심 시 소속·성명을 밝히지 않거나 확인되지 않은 채권의 일방적 변제 요구는 응하지 마세요.", sub: "", highlight: false },
+                      { text: "SNS·문자로 접근해 얼굴·신체 사진을 요구하는 경우 절대 응하지 마세요.", sub: "(텔레그램·카카오톡 등 모든 채널 포함)", highlight: true },
                     ].map((item, i) => (
                       <li key={i} className="modal-warning-item">
                         <span className="modal-warning-num">{i + 1}</span>
