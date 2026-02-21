@@ -424,28 +424,6 @@ export default function CardDetailPage() {
             </p>
           </div>
 
-          {/* 다른 업체 추천 */}
-          <div className="detail-related">
-            <div className="detail-related-title">🔍 다른 업체도 비교해보세요</div>
-            <div className="detail-related-list">
-              {relatedCards.map((rc) => (
-                <div
-                  key={rc.id}
-                  className="detail-related-item"
-                  onClick={() => router.push(`/recommend/${rc.id}`)}
-                >
-                  <div className="detail-related-badge">{rc.badge}</div>
-                  <div className="detail-related-info">
-                    <p className="detail-related-company">{rc.company}</p>
-                    <p className="detail-related-name">{rc.title}</p>
-                  </div>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#aaa" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="9 18 15 12 9 6"/>
-                  </svg>
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* 지역별/상품별 업체찾기 */}
           <div className="detail-region-section">
