@@ -3928,6 +3928,46 @@ a {
   word-break: keep-all;
 }
 
+/* ── 업체정보 상세보기 | 대출시 주의사항 버튼 ── */
+.detail-expand-btns {
+  display: flex;
+  gap: 8px;
+  padding: 0 14px 12px;
+  background: #fff;
+  margin-bottom: 8px;
+}
+
+.detail-expand-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 11px 8px;
+  border: 1.5px solid #E07B00;
+  border-radius: 6px;
+  background: #fff;
+  color: #E07B00;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  cursor: pointer;
+  transition: background .15s;
+  word-break: keep-all;
+  text-align: center;
+  line-height: 1.3;
+}
+.detail-expand-btn:active {
+  background: #FFF5E6;
+}
+
+.detail-expand-plus {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  color: #E07B00;
+}
+
 /* ── 주요 특징 아이콘 그리드 ── */
 .detail-features-grid {
   display: grid;

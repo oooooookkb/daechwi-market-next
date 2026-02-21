@@ -266,6 +266,12 @@ export default function CardDetailPage() {
             </div>
           </div>
 
+          {/* 업체정보 상세보기 | 대출시 주의사항 버튼 */}
+          <div className="detail-expand-btns">
+            <button className="detail-expand-btn">업체정보 상세보기 <span className="detail-expand-plus">+</span></button>
+            <button className="detail-expand-btn">대출시 주의사항 <span className="detail-expand-plus">+</span></button>
+          </div>
+
           {/* 부가설명 */}
           <div className="detail-card">
             <div className="detail-card-title">
