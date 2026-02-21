@@ -24,6 +24,10 @@
 .hero {
   min-height: 160px !important;
   padding: 0 !important;
+  flex-direction: column !important;
+}
+.hero-right {
+  display: none !important;
 }
 
 /* 카드 그리드 — 2열 */

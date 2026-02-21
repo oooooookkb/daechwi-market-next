@@ -6,17 +6,19 @@ import Link from "next/link";
 export default function PcHeader() {
   const pathname = usePathname();
 
-  const gnbItems = [
-    { label: "실시간 대출상담", href: "/realtime", w: 130, highlight: true },
-    { label: "지역별 업체찾기", href: "/region", w: 125 },
-    { label: "상품별 업체찾기", href: "/product", w: 135 },
-    { label: "오늘의 추천업체", href: "/recommend", w: 135 },
-    { label: "맞춤검색", href: "/search", w: 91 },
-    { label: "사기번호조회", href: "/scam-check", w: 120 },
-    { label: "정식업체조회", href: "/verified", w: 119 },
-    { label: "커뮤니티", href: "/community", w: 96 },
-    { label: "이용안내", href: "/guide", w: 96 },
-    { label: "고객센터", href: "/cs", w: 83 },
+  const gnbLeft = [
+    { label: "실시간 대출상담", href: "/realtime" },
+    { label: "지역별 업체찾기", href: "/region" },
+    { label: "상품별 업체찾기", href: "/product" },
+    { label: "오늘의 추천업체", href: "/recommend" },
+  ];
+  const gnbRight = [
+    { label: "맞춤검색",    href: "/search" },
+    { label: "사기번호조회", href: "/scam-check" },
+    { label: "정식업체조회", href: "/verified" },
+    { label: "커뮤니티",    href: "/community" },
+    { label: "이용안내",    href: "/guide" },
+    { label: "고객센터",    href: "/cs" },
   ];
 
   return (
@@ -42,7 +44,6 @@ export default function PcHeader() {
           {/* 로고 */}
           <Link href="/" className="pc-logo-wrap">
             <div className="pc-logo-main">대출<span>마켓</span></div>
-            <div className="pc-logo-sub">대출중개플랫폼 1위</div>
           </Link>
 
           {/* 검색바 영역 (550px) */}
@@ -107,32 +108,36 @@ export default function PcHeader() {
       {/* ── 3단: GNB (h:51px) ── */}
       <nav className="pc-gnb">
         <div className="pc-inner">
-          {gnbItems.map((item) => {
-            const isActive = pathname === item.href;
-            if (item.highlight) {
+          <div className="gnb-left">
+            {gnbLeft.map((item) => {
+              const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="pc-gnb-item pc-gnb-realtime"
-                  style={{ width: item.w }}
+                  className={`pc-gnb-item${isActive ? " active" : ""}`}
                 >
-                  ✏️ {item.label}
+                  {item.label}
+                  {isActive && <span className="pc-gnb-ac-line" />}
                 </Link>
               );
-            }
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`pc-gnb-item${isActive ? " active" : ""}`}
-                style={{ width: item.w }}
-              >
-                {item.label}
-                {isActive && <span className="pc-gnb-ac-line" />}
-              </Link>
-            );
-          })}
+            })}
+          </div>
+          <div className="gnb-right">
+            {gnbRight.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`pc-gnb-item${isActive ? " active" : ""}`}
+                >
+                  {item.label}
+                  {isActive && <span className="pc-gnb-ac-line" />}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </nav>
     </>

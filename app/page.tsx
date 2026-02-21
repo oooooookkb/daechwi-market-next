@@ -4,12 +4,9 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import PcHeader from "./components/PcHeader";
 import PcFooter from "./components/PcFooter";
-import Pc3ColSection from "./components/Pc3ColSection";
 import PcCommunitySection from "./components/PcCommunitySection";
 import HeroSection from "./components/HeroSection";
 import CardsSection from "./components/CardsSection";
-import RealtimeSection from "./components/RealtimeSection";
-import RegionSection from "./components/RegionSection";
 
 export default function Home() {
   const router = useRouter();
@@ -52,22 +49,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 3열 섹션 */}
-      <Pc3ColSection />
-
       {/* 메인 카드 그리드 */}
       <CardsSection />
-
-      {/* 지역(좌) + 실시간(우) */}
-      <div className="pc-region-rt-wrap">
-        <div className="pc-rt-side">
-          <RealtimeSection />
-        </div>
-        <div className="pc-region-side">
-          <div className="section-divider"></div>
-          <RegionSection hideCards />
-        </div>
-      </div>
 
       {/* 커뮤니티 섹션 */}
       <PcCommunitySection />

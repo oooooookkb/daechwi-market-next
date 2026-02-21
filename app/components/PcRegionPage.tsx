@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import allCards from "../data/cards";
 
 /* ── 지역 데이터 (아이콘 SVG path + 업체 수) ── */
 const regions = [
@@ -35,19 +36,7 @@ const premSlides = [
   { id: 5, badge: "사업자",        company: "성장파이낸셜",          region: "인천", desc: "자영업·개인사업자 OK",       color1: "#0D2240", color2: "#1A4070" },
 ];
 
-/* ── 업체 카드 데이터 ── */
-const allCards = [
-  { id: 1,  badge: "월변·당일",    tagColor: "gold",   title: "24시 비대면 월변대출",    desc: "상담 후 당일 송금 OK\n신속한 당일 간편 대출",   company: "24시전국당일승인대부", region: "전국", color: "#0B2347", initial: "24" },
-  { id: 2,  badge: "무직자·저신용", tagColor: "red",    title: "무직자·외국인 당일입금",  desc: "무직자·저신용·외국인 OK\n무방문 월변 빠른진행", company: "구조대부",            region: "서울", color: "#1A3A6B", initial: "구" },
-  { id: 3,  badge: "직장인·비대면", tagColor: "blue",   title: "직장인 1개월 월변대출",   desc: "직장인·자영업자 OK\n신속 비대면 빠른진행",     company: "드림파이낸셜",         region: "경기", color: "#122B55", initial: "드" },
-  { id: 4,  badge: "소액·당일",    tagColor: "gold",   title: "소액 당일대출 전국OK",    desc: "소액 가능·당일송금\n전국 어디서나 OK",        company: "미래대부",            region: "부산", color: "#0F2D5E", initial: "미" },
-  { id: 5,  badge: "신불자·소액",  tagColor: "red",    title: "신용불량 소액 급전",      desc: "10만~300만원 소액\n신용불량·연체 가능",       company: "희망대부",            region: "대구", color: "#1A3A6B", initial: "희" },
-  { id: 6,  badge: "사업자",       tagColor: "purple", title: "개인사업자 비대면대출",   desc: "자영업·개인사업자 OK\n매출 기반 한도산정",    company: "성장파이낸셜",         region: "인천", color: "#122B55", initial: "성" },
-  { id: 7,  badge: "여성·주부",    tagColor: "purple", title: "여성·주부 전용 대출",     desc: "주부·무직 여성 OK\n당일 입금 빠른진행",       company: "레이디파이낸셜",       region: "서울", color: "#1A3060", initial: "레" },
-  { id: 8,  badge: "대환·저금리",  tagColor: "green",  title: "고금리 대환 전환대출",    desc: "고금리 → 저금리 전환\n원클릭 간편 신청",     company: "클린대부",            region: "경기", color: "#0F2550", initial: "클" },
-  { id: 9,  badge: "비상금·즉시",  tagColor: "gold",   title: "비상금 10분 즉시입금",    desc: "50만~500만원 비상금\n10분 안에 입금",        company: "빠른머니대부",         region: "전국", color: "#102040", initial: "빠" },
-  { id: 10, badge: "프리랜서",     tagColor: "blue",   title: "프리랜서 소득증빙 없이",  desc: "소득증빙 불필요\n실적 기반 간편 심사",        company: "자유대부",            region: "전국", color: "#0A1E3C", initial: "자" },
-];
+/* allCards는 ../data/cards에서 import */
 
 import { useEffect, useRef } from "react";
 
@@ -71,73 +60,81 @@ export default function PcRegionPage({ initialRegion = "전체" }: { initialRegi
 
   return (
     <div className="pc-region-page">
-      <div className="pc-inner">
 
-        {/* ── 브레드크럼 + 타이틀 ── */}
-        <div className="pc-rp-topbar">
-          <h1 className="pc-rp-title">지역별 업체찾기</h1>
-          <nav className="pc-rp-breadcrumb">
-            <Link href="/">HOME</Link>
-            <span className="pc-rp-bc-sep">›</span>
-            <span className="pc-rp-bc-cur">지역별 업체찾기</span>
-          </nav>
-        </div>
+      {/* ── 네이비 영역: 풀너비 배경 + 내부 max-width ── */}
+      <div className="pc-rp-navy-area">
+        <div className="pc-rp-navy-inner">
 
-        {/* ── 프리미엄 배너 + 지역 그리드 2단 ── */}
-        <div className="pc-rp-main">
+          {/* ── 브레드크럼 + 타이틀 ── */}
+          <div className="pc-rp-topbar">
+            <h1 className="pc-rp-title">지역별 업체찾기</h1>
+            <nav className="pc-rp-breadcrumb">
+              <Link href="/">HOME</Link>
+              <span className="pc-rp-bc-sep">›</span>
+              <span className="pc-rp-bc-cur">지역별 업체찾기</span>
+            </nav>
+          </div>
 
-          {/* 좌측: 프리미엄 배너 */}
-          <div
-            className="pc-rp-prem"
-            style={{ background: `linear-gradient(150deg, ${prem.color1} 0%, ${prem.color2} 100%)` }}
-            onMouseEnter={() => setPremPaused(true)}
-            onMouseLeave={() => setPremPaused(false)}
-          >
-            <div className="pc-rp-prem-head">
-              <span className="pc-rp-prem-label">⭐ Premium</span>
-              <div className="pc-rp-prem-dots">
-                {premSlides.map((_, i) => (
+          {/* ── 프리미엄 배너 + 지역 그리드 2단 ── */}
+          <div className="pc-rp-main">
+
+            {/* 좌측: 프리미엄 배너 */}
+            <div
+              className="pc-rp-prem"
+              style={{ background: `linear-gradient(150deg, ${prem.color1} 0%, ${prem.color2} 100%)` }}
+              onMouseEnter={() => setPremPaused(true)}
+              onMouseLeave={() => setPremPaused(false)}
+            >
+              <div className="pc-rp-prem-head">
+                <span className="pc-rp-prem-label">⭐ Premium</span>
+                <div className="pc-rp-prem-dots">
+                  {premSlides.map((_, i) => (
+                    <button
+                      key={i}
+                      className={"pc-rp-prem-dot" + (i === premIdx ? " active" : "")}
+                      onClick={() => { setPremIdx(i); setPremPaused(true); }}
+                      aria-label={`슬라이드 ${i + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="pc-rp-prem-body">
+                <span className="pc-rp-prem-badge">{prem.badge}</span>
+                <p className="pc-rp-prem-desc">{prem.desc}</p>
+                <div className="pc-rp-prem-info">
+                  <span className="pc-rp-prem-region">{prem.region}</span>
+                  <span className="pc-rp-prem-company">{prem.company}</span>
+                </div>
+                <Link href={`/recommend/${prem.id}`} className="pc-rp-prem-cta">상세보기 →</Link>
+              </div>
+            </div>
+
+            {/* 우측: 지역 카드 그리드 */}
+            <div className="pc-rp-region-grid-wrap">
+              <div className="pc-rp-region-grid">
+                {regions.map((r) => (
                   <button
-                    key={i}
-                    className={"pc-rp-prem-dot" + (i === premIdx ? " active" : "")}
-                    onClick={() => { setPremIdx(i); setPremPaused(true); }}
-                    aria-label={`슬라이드 ${i + 1}`}
-                  />
+                    key={r.label}
+                    className={"pc-rp-region-card" + (activeRegion === r.label ? " active" : "")}
+                    onClick={() => setActiveRegion(r.label)}
+                  >
+                    <svg className="pc-rp-region-icon" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                      <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+                    </svg>
+                    <span className="pc-rp-region-name">{r.label}</span>
+                    <span className="pc-rp-region-count">{r.count}개</span>
+                  </button>
                 ))}
               </div>
             </div>
-            <div className="pc-rp-prem-body">
-              <span className="pc-rp-prem-badge">{prem.badge}</span>
-              <p className="pc-rp-prem-desc">{prem.desc}</p>
-              <div className="pc-rp-prem-info">
-                <span className="pc-rp-prem-region">{prem.region}</span>
-                <span className="pc-rp-prem-company">{prem.company}</span>
-              </div>
-              <Link href={`/recommend/${prem.id}`} className="pc-rp-prem-cta">상세보기 →</Link>
-            </div>
-          </div>
 
-          {/* 우측: 지역 카드 그리드 */}
-          <div className="pc-rp-region-grid-wrap">
-            <div className="pc-rp-region-grid">
-              {regions.map((r) => (
-                <button
-                  key={r.label}
-                  className={"pc-rp-region-card" + (activeRegion === r.label ? " active" : "")}
-                  onClick={() => setActiveRegion(r.label)}
-                >
-                  <svg className="pc-rp-region-icon" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-                    <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
-                  </svg>
-                  <span className="pc-rp-region-name">{r.label}</span>
-                  <span className="pc-rp-region-count">{r.count}개</span>
-                </button>
-              ))}
-            </div>
           </div>
 
         </div>
+      </div>{/* /pc-rp-navy-area */}
+
+      <div className="pc-inner">
 
         {/* ── 섹션 타이틀 ── */}
         <div className="pc-rp-section-title-bar">
@@ -152,45 +149,24 @@ export default function PcRegionPage({ initialRegion = "전체" }: { initialRegi
         {filteredCards.length > 0 ? (
           <div className="pc-rp-cards-grid">
             {filteredCards.map((card) => (
-              <div
-                key={card.id}
-                className="pc-rp-card"
-                onClick={() => router.push(`/recommend/${card.id}`)}
-              >
-                {/* 이미지 썸네일 영역 */}
-                <div
-                  className="pc-rp-card-thumb"
-                  style={{ background: `linear-gradient(160deg, ${card.color} 0%, #1E4A8A 100%)` }}
-                >
-                  {card.badge && (
-                    <span className={`pc-rp-card-badge tag--${card.tagColor}`}>{card.badge}</span>
-                  )}
-                  <div className="pc-rp-card-initial">{card.initial}</div>
-                  <span className="pc-rp-card-co-overlay">{card.company}</span>
+              <div key={card.id} className="pc-rp-card" onClick={() => router.push(`/recommend/${card.id}`)}>
+                <div className="pc-card-top" style={{ backgroundImage: `url(${card.img})` }}>
+                  <span className={`pc-card-tag tag--${card.tagColor}`}>{card.badge}</span>
                 </div>
-                {/* 텍스트 영역 */}
-                <div className="pc-rp-card-body">
-                  <div className="pc-rp-card-title">{card.title}</div>
-                  <p className="pc-rp-card-desc">
-                    {card.desc.split("\n").map((line, i) => (
-                      <span key={i}>{line}{i < card.desc.split("\n").length - 1 && <br />}</span>
+                <div className="pc-card-bottom">
+                  <div className="pc-card-title">{card.title}</div>
+                  <ul className="pc-card-features">
+                    {card.features.map((f, i) => (
+                      <li key={i} className={`pc-card-feat feat-${i}`}>{f}</li>
                     ))}
-                  </p>
-                  <div className="pc-rp-card-footer">
-                    <span className="pc-rp-card-co">{card.company}</span>
-                    <span className="pc-rp-card-region">{card.region}</span>
+                  </ul>
+                  <div className="pc-card-info-row">
+                    <div className="pc-card-info-left">
+                      <span className="pc-card-company">{card.company}</span>
+                      <span className="pc-card-region-row">{card.region}</span>
+                    </div>
+                    <a href={`tel:${card.phone}`} className="pc-card-phone" onClick={(e) => e.stopPropagation()}>{card.phone}</a>
                   </div>
-                </div>
-                <div className="pc-rp-card-btns">
-                  <button
-                    className="pc-rp-btn-detail"
-                    onClick={(e) => { e.stopPropagation(); router.push(`/recommend/${card.id}`); }}
-                  >🔍 상세보기</button>
-                  <a
-                    href={`tel:010-0000-0000`}
-                    className="pc-rp-btn-call"
-                    onClick={(e) => e.stopPropagation()}
-                  >📞 통화하기</a>
                 </div>
               </div>
             ))}

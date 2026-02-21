@@ -4,24 +4,22 @@ import { useParams, useRouter } from "next/navigation";
 import Header from "../../components/Header";
 import NavTabs from "../../components/NavTabs";
 import BottomNav from "../../components/BottomNav";
+import PcHeader from "../../components/PcHeader";
+import PcFooter from "../../components/PcFooter";
+import PcDetailPage from "../../components/PcDetailPage";
 
 const cards = [
   {
-    id: 1,
-    badge: "월변·당일",
-    title: "24시 비대면 월변대출",
+    id: 1, badge: "월변·당일", title: "24시 비대면 월변대출",
     subtitle: "무직 직장인 사업자 알바 학생 군인 업소 저신용 OK",
-    company: "24시전국당일승인대부",
-    regNo: "2026-인천서구-0003",
-    phone: "010-2365-1383",
-    region: "전국 경기 대전 대구 광주",
-    regOrg: "인천 서구 경제정책과",
+    company: "24시전국당일승인대부", regNo: "2026-인천서구-0003", phone: "010-2365-1383",
+    region: "전국 경기 대전 대구 광주", regOrg: "인천 서구 경제정책과",
     office: "인천 서구 완정로 153 803호(왕길동, 이레메디칼센타)",
     monthRate: "상담 후 결정", limit: "상담 후 결정", extraFee: "없음",
     repayType: "상담 후 결정", yearRate: "연 20%", overRate: "연 20% 이내",
     earlyFee: "없음", repayPeriod: "상담 후 결정",
-    extra: `📞 대출마켓을 보고 연락드렸다고 하시면 보다 상담이 쉬워집니다.\n\n✨ 무직자 · 직장인 · 개인사업자 전문 대출상담 ✨\n\n금융협회 정식등록 대부중개업체로 안전하게 진행합니다.\n\n요즘 갑자기 돈이 필요할 때,\n은행은 조건이 까다롭고, 카드론은 금리가 너무 높죠\n그럴 때 신용점수나 직업 상관없이 빠르게 도와드릴 수 있는 곳이 필요합니다.\n저희는 무직자, 직장인, 개인사업자, 알바, 학생, 군인, 주부,\n저신용자까지 누구나 부담 없이 상담 가능한 정식 등록 중개업체 입니다.\n\n➡ 진행가능 대상\n\n✔ 무직자 / 알바생 / 프리랜서\n✔ 직장인 / 급여소득자\n✔ 개인사업자 / 자영업자\n✔ 주부 / 군인 / 학생 / 업소 종사자\n✔ 저신용자 / 연체 이력자 (일부 조건 가능)`,
-    warning: `계약을 체결하기 전에 자세한 내용은 상품설명서와 약관을 읽어보시기 바랍니다. 관계법령에 따라 금융상품에 관한 중요 사항을 설명받을 권리가 있습니다. 대출 시 귀하의 신용등급 또는 개인신용평점이 하락할 수 있습니다. 과도한 빚은 당신에게 큰 불행을 안겨줄 수 있습니다. 중개수수료를 요구하거나 받는 것은 불법입니다.\n\n금리 연20% 이내 (연체이자율 포함 20% 이내), 취급수수료 없음, 중도상환 수수료 없음, 중개수수료 없음, 추가비용 없음. 상환기간 : 12개월 ~ 60개월 / 총 대출 비용 예시 : 100만원을 12개월 기간 동안 최대 금리 연20% 적용 시 총 상환금액 1,111,614원. 채무의 조기상환수수료율 등 조기상환조건 없음.`,
+    extra: "대출마켓을 보고 연락드렸다고 하시면 보다 상담이 쉬워집니다.\n\n무직자 · 직장인 · 개인사업자 전문 대출상담\n\n금융협회 정식등록 대부중개업체로 안전하게 진행합니다.\n\n요즘 갑자기 돈이 필요할 때,\n은행은 조건이 까다롭고, 카드론은 금리가 너무 높죠\n그럴 때 신용점수나 직업 상관없이 빠르게 도와드릴 수 있는 곳이 필요합니다.\n저희는 무직자, 직장인, 개인사업자, 알바, 학생, 군인, 주부,\n저신용자까지 누구나 부담 없이 상담 가능한 정식 등록 중개업체 입니다.\n\n진행가능 대상\n\n무직자 / 알바생 / 프리랜서\n직장인 / 급여소득자\n개인사업자 / 자영업자\n주부 / 군인 / 학생 / 업소 종사자\n저신용자 / 연체 이력자 (일부 조건 가능)",
+    warning: "계약을 체결하기 전에 자세한 내용은 상품설명서와 약관을 읽어보시기 바랍니다. 관계법령에 따라 금융상품에 관한 중요 사항을 설명받을 권리가 있습니다. 대출 시 귀하의 신용등급 또는 개인신용평점이 하락할 수 있습니다. 과도한 빚은 당신에게 큰 불행을 안겨줄 수 있습니다. 중개수수료를 요구하거나 받는 것은 불법입니다.\n\n금리 연20% 이내 (연체이자율 포함 20% 이내), 취급수수료 없음, 중도상환 수수료 없음, 중개수수료 없음, 추가비용 없음. 상환기간 : 12개월 ~ 60개월 / 총 대출 비용 예시 : 100만원을 12개월 기간 동안 최대 금리 연20% 적용 시 총 상환금액 1,111,614원. 채무의 조기상환수수료율 등 조기상환조건 없음.",
     color: "#0F2D5E",
   },
   {
@@ -32,7 +30,7 @@ const cards = [
     monthRate: "상담 후 결정", limit: "상담 후 결정", extraFee: "없음",
     repayType: "상담 후 결정", yearRate: "연 20%", overRate: "연 20% 이내",
     earlyFee: "없음", repayPeriod: "상담 후 결정",
-    extra: "📞 대출마켓을 보고 연락주시면 빠르게 도와드리겠습니다.\n\n무직자, 저신용자, 외국인도 상담 가능합니다.",
+    extra: "대출마켓을 보고 연락주시면 빠르게 도와드리겠습니다.\n\n무직자, 저신용자, 외국인도 상담 가능합니다.",
     warning: "과도한 빚은 당신에게 큰 불행을 안겨줄 수 있습니다. 중개수수료를 요구하거나 받는 것은 불법입니다.",
     color: "#1A3A6B",
   },
@@ -45,8 +43,7 @@ const cards = [
     repayType: "상담 후 결정", yearRate: "연 20%", overRate: "연 20% 이내",
     earlyFee: "없음", repayPeriod: "상담 후 결정",
     extra: "직장인과 자영업자를 위한 전문 대출 서비스입니다.",
-    warning: "과도한 빚은 당신에게 큰 불행을 안겨줄 수 있습니다.",
-    color: "#122B55",
+    warning: "과도한 빚은 당신에게 큰 불행을 안겨줄 수 있습니다.", color: "#122B55",
   },
   {
     id: 4, badge: "소액·당일", title: "24시 비대면 당일대출",
@@ -88,143 +85,96 @@ export default function CardDetailPage() {
   const router = useRouter();
   const card = cards.find(c => c.id === Number(id));
 
-  if (!card) return <div className="detail-loading">업체 정보를 찾을 수 없습니다.</div>;
+  if (!card) return <div style={{ padding: 40, textAlign: "center" }}>업체 정보를 찾을 수 없습니다.</div>;
 
   return (
     <>
-      <Header />
-      <NavTabs />
-
-      <div className="detail-wrap">
-
-        {/* ── 히어로 ── */}
-        <div className="detail-hero" style={{ background: `linear-gradient(160deg, ${card.color} 0%, #1E4A8A 100%)` }}>
-          <button className="detail-back" onClick={() => router.back()}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="15 18 9 12 15 6"/>
-            </svg>
-          </button>
-          <div className="detail-hero-inner">
-            <span className="detail-hero-badge">{card.badge}</span>
-            <h1 className="detail-hero-title">{card.title}</h1>
-            <p className="detail-hero-sub">{card.subtitle}</p>
-          </div>
-        </div>
-
-        {/* ── 업체정보 ── */}
-        <div className="detail-card">
-          <div className="detail-card-title">
-            <span className="detail-card-title-bar" />
-            업체정보
-          </div>
-          <div className="detail-table">
-            <div className="detail-row">
-              <span className="detail-label">업체명</span>
-              <span className="detail-value fw">{card.company}</span>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">대부업(중개)<br/>등록번호</span>
-              <span className="detail-value">{card.regNo}</span>
-            </div>
-            <div className="detail-row align-top">
-              <span className="detail-label">연락처</span>
-              <div className="detail-contact">
-                <span className="detail-phone">📞 {card.phone}</span>
-                <div className="detail-contact-btns">
-                  <a href={`tel:${card.phone}`} className="detail-btn-call">
-                    📞 전화하기
-                  </a>
-                  <a href={`sms:${card.phone}`} className="detail-btn-sms">
-                    ✉ 문자하기
-                  </a>
-                </div>
-                <p className="detail-contact-tip">
-                  📢 &quot;대출마켓&quot;을 보고 연락드렸다고 하시면 상담이 빠르고 쉬워집니다.
-                </p>
-              </div>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">등록기관</span>
-              <span className="detail-value">{card.regOrg}</span>
-            </div>
-            <div className="detail-row">
-              <span className="detail-label">영업소</span>
-              <span className="detail-value">{card.office}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* ── 상품정보 ── */}
-        <div className="detail-card">
-          <div className="detail-card-title">
-            <span className="detail-card-title-bar" />
-            상품정보
-          </div>
-          <div className="detail-table">
-            {[
-              { label: "월금리",        value: card.monthRate },
-              { label: "대출한도",      value: card.limit },
-              { label: "추가비용",      value: card.extraFee },
-              { label: "상환방식",      value: card.repayType },
-              { label: "지역",          value: card.region },
-              { label: "연금리",        value: card.yearRate },
-              { label: "연체금리",      value: card.overRate },
-              { label: "조기상환수수료", value: card.earlyFee },
-              { label: "상환기간",      value: card.repayPeriod },
-            ].map((row, i) => (
-              <div className="detail-row" key={i}>
-                <span className="detail-label">{row.label}</span>
-                <span className="detail-value">{row.value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── 부가설명 ── */}
-        <div className="detail-card">
-          <div className="detail-card-title">
-            <span className="detail-card-title-bar" />
-            부가설명
-          </div>
-          <p className="detail-extra">
-            {card.extra.split("\n").map((line, i) => (
-              <span key={i}>{line}<br /></span>
-            ))}
-          </p>
-        </div>
-
-        {/* ── 주의사항 ── */}
-        <div className="detail-warning-box">
-          <p className="detail-warning-title">※ 주의사항</p>
-          <p className="detail-warning-text">
-            {card.warning.split("\n").map((line, i) => (
-              <span key={i}>{line}<br /></span>
-            ))}
-          </p>
-        </div>
-
-        {/* ── 저작권 ── */}
-        <div className="detail-copyright">
-          <div className="detail-copyright-logo">
-            <div className="detail-copyright-logo-icon">대</div>
-            대출마켓
-          </div>
-          <p className="detail-copyright-text">
-            본 정보는 <strong>[{card.company}]</strong>에 등록한 자료를 바탕으로 대출마켓에서 편집 및 그 표현방법을 수정하여 완성한 것입니다.<br />
-            대출마켓 동의없이 무단전재 또는 재배포, 재가공 할 수 없으며, 대출마켓은(는) <strong>[{card.company}]</strong>에 게재한 자료에 대한 오류와 사용자가 이를 신뢰하여 취한 조치에 대해 책임을 지지않습니다.
-          </p>
-          <p className="detail-copyright-mark">[저작권 대출마켓. 무단전재·재배포 금지]</p>
-        </div>
-
-        {/* ── 목록 버튼 ── */}
-        <div className="detail-footer">
-          <button className="detail-list-btn" onClick={() => router.push("/recommend")}>목록</button>
-        </div>
-
+      {/* ── PC 전용 ── */}
+      <div className="pc-only-block">
+        <PcHeader />
+        <PcDetailPage card={card} />
+        <PcFooter />
       </div>
 
-      <div className="spacer" />
-      <BottomNav />
+      {/* ── 모바일 전용 ── */}
+      <div className="mobile-only-block">
+        <Header />
+        <NavTabs />
+
+        <div className="detail-wrap">
+          <div className="detail-hero" style={{ background: `linear-gradient(160deg, ${card.color} 0%, #1E4A8A 100%)` }}>
+            <button className="detail-back" onClick={() => router.back()}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+            </button>
+            <div className="detail-hero-inner">
+              <span className="detail-hero-badge">{card.badge}</span>
+              <h1 className="detail-hero-title">{card.title}</h1>
+              <p className="detail-hero-sub">{card.subtitle}</p>
+            </div>
+          </div>
+
+          <div className="detail-card">
+            <div className="detail-card-title"><span className="detail-card-title-bar" />업체정보</div>
+            <div className="detail-table">
+              <div className="detail-row"><span className="detail-label">업체명</span><span className="detail-value fw">{card.company}</span></div>
+              <div className="detail-row"><span className="detail-label">등록번호</span><span className="detail-value">{card.regNo}</span></div>
+              <div className="detail-row align-top">
+                <span className="detail-label">연락처</span>
+                <div className="detail-contact">
+                  <span className="detail-phone">{card.phone}</span>
+                  <div className="detail-contact-btns">
+                    <a href={`tel:${card.phone}`} className="detail-btn-call">전화하기</a>
+                    <a href={`sms:${card.phone}`} className="detail-btn-sms">문자하기</a>
+                  </div>
+                  <p className="detail-contact-tip">&quot;대출마켓&quot;을 보고 연락드렸다고 하시면 상담이 빠르고 쉬워집니다.</p>
+                </div>
+              </div>
+              <div className="detail-row"><span className="detail-label">등록기관</span><span className="detail-value">{card.regOrg}</span></div>
+              <div className="detail-row"><span className="detail-label">영업소</span><span className="detail-value">{card.office}</span></div>
+            </div>
+          </div>
+
+          <div className="detail-card">
+            <div className="detail-card-title"><span className="detail-card-title-bar" />상품정보</div>
+            <div className="detail-table">
+              {[
+                { label: "월금리", value: card.monthRate }, { label: "대출한도", value: card.limit },
+                { label: "추가비용", value: card.extraFee }, { label: "상환방식", value: card.repayType },
+                { label: "지역", value: card.region }, { label: "연금리", value: card.yearRate },
+                { label: "연체금리", value: card.overRate }, { label: "조기상환수수료", value: card.earlyFee },
+                { label: "상환기간", value: card.repayPeriod },
+              ].map((row, i) => (
+                <div className="detail-row" key={i}><span className="detail-label">{row.label}</span><span className="detail-value">{row.value}</span></div>
+              ))}
+            </div>
+          </div>
+
+          <div className="detail-card">
+            <div className="detail-card-title"><span className="detail-card-title-bar" />부가설명</div>
+            <p className="detail-extra">{card.extra.split("\n").map((line, i) => (<span key={i}>{line}<br /></span>))}</p>
+          </div>
+
+          <div className="detail-warning-box">
+            <p className="detail-warning-title">주의사항</p>
+            <p className="detail-warning-text">{card.warning.split("\n").map((line, i) => (<span key={i}>{line}<br /></span>))}</p>
+          </div>
+
+          <div className="detail-copyright">
+            <div className="detail-copyright-logo"><div className="detail-copyright-logo-icon">대</div>대출마켓</div>
+            <p className="detail-copyright-text">본 정보는 <strong>[{card.company}]</strong>에 등록한 자료를 바탕으로 대출마켓에서 편집한 것입니다. 대출마켓 동의없이 무단전재 또는 재배포, 재가공 할 수 없습니다.</p>
+            <p className="detail-copyright-mark">[저작권 대출마켓. 무단전재·재배포 금지]</p>
+          </div>
+
+          <div className="detail-footer">
+            <button className="detail-list-btn" onClick={() => router.push("/recommend")}>목록</button>
+          </div>
+        </div>
+
+        <div className="spacer" />
+        <BottomNav />
+      </div>
     </>
   );
 }

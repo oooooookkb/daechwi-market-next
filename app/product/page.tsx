@@ -3,6 +3,9 @@ import Header from "../components/Header";
 import NavTabs from "../components/NavTabs";
 import BottomNav from "../components/BottomNav";
 import RegionSectionProduct from "../components/RegionSectionProduct";
+import PcHeader from "../components/PcHeader";
+import PcFooter from "../components/PcFooter";
+import PcProductPage from "../components/PcProductPage";
 
 export const metadata: Metadata = {
   title: "상품별 업체찾기 | 대출마켓",
@@ -12,19 +15,29 @@ export const metadata: Metadata = {
 export default function ProductPage() {
   return (
     <>
-      <Header />
-      <NavTabs />
-      <section style={{ background: "#112A52", padding: "20px 20px 24px" }}>
-        <h1 style={{ fontSize: "22px", fontWeight: 900, color: "#fff", letterSpacing: "-0.8px", marginBottom: "6px" }}>
-          상품별 업체찾기
-        </h1>
-        <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.65)", fontWeight: 500 }}>
-          필요한 대출 상품을 선택하면 맞는 업체를 찾아드려요
-        </p>
-      </section>
-      <RegionSectionProduct />
-      <div className="spacer"></div>
-      <BottomNav />
+      {/* PC 뷰 */}
+      <div className="pc-only-block">
+        <PcHeader />
+        <PcProductPage />
+        <PcFooter />
+      </div>
+
+      {/* 모바일 뷰 */}
+      <div className="mobile-only-block">
+        <Header />
+        <NavTabs />
+        <section style={{ background: "#112A52", padding: "20px 20px 24px" }}>
+          <h1 style={{ fontSize: "22px", fontWeight: 900, color: "#fff", letterSpacing: "-0.8px", marginBottom: "6px" }}>
+            상품별 업체찾기
+          </h1>
+          <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.65)", fontWeight: 500 }}>
+            필요한 대출 상품을 선택하면 맞는 업체를 찾아드려요
+          </p>
+        </section>
+        <RegionSectionProduct />
+        <div className="spacer"></div>
+        <BottomNav />
+      </div>
     </>
   );
 }

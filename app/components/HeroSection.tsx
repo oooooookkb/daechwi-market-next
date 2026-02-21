@@ -7,6 +7,8 @@ const FADE_MS = 250;
 const INTERVAL_MS = 4000;
 const PAUSE_AFTER_CLICK_MS = 8000;
 
+const bgImages = ["/banner1.png", "/banner2.png", "/banner3.png"];
+
 const slides = [
   {
     key: "A",
@@ -75,6 +77,9 @@ const productTags = [
   { label: "전문직",  href: "/product?q=전문직대출" },
   { label: "저신용",  href: "/product?q=저신용자" },
   { label: "신용",    href: "/product?q=신용대출" },
+  { label: "대환",    href: "/product?q=대환대출" },
+  { label: "주부",    href: "/product?q=주부대출" },
+  { label: "학생",    href: "/product?q=학생대출" },
   { label: "더보기+", href: "/product" },
 ];
 
@@ -85,6 +90,59 @@ export default function HeroSection() {
   const [premIdx, setPremIdx] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pauseRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  /* 사기번호검색 카운트업 */
+  const [scamCount1, setScamCount1] = useState(0); // 총 이력조회
+  const [scamCount2, setScamCount2] = useState(0); // 총 사기번호
+  useEffect(() => {
+    const target1 = 301406;
+    const target2 = 4111;
+    const duration = 1500;
+    const start = performance.now();
+    const ease = (t: number) => 1 - Math.pow(1 - t, 3);
+    const step = (now: number) => {
+      const p = Math.min((now - start) / duration, 1);
+      const e = ease(p);
+      setScamCount1(Math.floor(e * target1));
+      setScamCount2(Math.floor(e * target2));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, []);
+
+  /* 사기번호검색 폼 */
+  const [scamPhone, setScamPhone] = useState("");
+  const [scamLoading, setScamLoading] = useState(false);
+  const [scamResult, setScamResult] = useState<{ totCnt: number; voiceCnt: number; smsCnt: number } | null>(null);
+  const [scamError, setScamError] = useState("");
+
+  const handleScamSearch = async () => {
+    const digits = scamPhone.replace(/[^0-9]/g, "");
+    if (digits.length < 8) {
+      setScamError("전화번호를 정확히 입력해주세요 (8자리 이상)");
+      return;
+    }
+    setScamError("");
+    setScamResult(null);
+    setScamLoading(true);
+    try {
+      const res = await fetch("/api/fraud-check", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ telNum: digits }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setScamError(data.error || "조회 중 오류가 발생했습니다.");
+      } else {
+        setScamResult(data);
+      }
+    } catch {
+      setScamError("네트워크 오류가 발생했습니다.");
+    } finally {
+      setScamLoading(false);
+    }
+  };
 
   const goTo = (nextIndex: number, userInitiated = false) => {
     setIsFading(true);
@@ -129,10 +187,39 @@ export default function HeroSection() {
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="hero-inner">
-      {/* 좌측: 슬로건 */}
-      <div className="hero-left">
+
+      {/* 좌측: 슬로건 + 배경 이미지 슬라이드 */}
+      <div className="hero-left" style={{ position: "relative", overflow: "hidden" }}>
+        {/* 좌측 배경 이미지 슬라이드 */}
+        {bgImages.map((src, i) => (
+          <div
+            key={src}
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: `url(${src})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center right",
+              opacity: i === activeIndex ? 1 : 0,
+              transition: "opacity 0.6s ease",
+              filter: "blur(2px)",
+              transform: "scale(1.03)",
+              zIndex: 0,
+            }}
+          />
+        ))}
+        {/* 어두운 오버레이: 텍스트 가독성 */}
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          background: "rgba(8, 18, 45, 0.78)",
+          zIndex: 1,
+        }} />
+        {/* 콘텐츠 */}
         <div
           style={{
+            position: "relative",
+            zIndex: 2,
             opacity: isFading ? 0 : 1,
             transform: isFading ? "translateY(5px)" : "translateY(0)",
             transition: `opacity ${FADE_MS}ms ease, transform ${FADE_MS}ms ease`,
@@ -144,7 +231,7 @@ export default function HeroSection() {
           <p className="hero-sub-text">{slide.sub}</p>
           <p className="hero-meta-text">{slide.meta}</p>
         </div>
-        <div className="hero-dots">
+        <div className="hero-dots" style={{ position: "relative", zIndex: 2 }}>
           {slides.map((s, i) => (
             <button
               key={s.key}
@@ -156,8 +243,55 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* 우측: 프리미엄 배너 + 지역/상품 찾기 */}
+      {/* 우측: 사기번호검색 + 프리미엄 배너 + 지역/상품 찾기 */}
       <div className="hero-right">
+
+        {/* 사기번호검색 */}
+        <div className="hrp-scam-search">
+          <div className="hrp-scam-title">사기번호검색</div>
+          <div className="hrp-scam-desc">경찰청 실시간 사기번호 DB와 연동하여 조회합니다</div>
+          <div className="hrp-scam-form">
+            <input
+              type="tel"
+              className="hrp-scam-input"
+              placeholder="전화번호 입력 (예: 01012345678)"
+              value={scamPhone}
+              onChange={(e) => setScamPhone(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleScamSearch()}
+              style={{ flex: 2 }}
+            />
+            <button className="hrp-scam-btn" onClick={handleScamSearch} disabled={scamLoading}>
+              {scamLoading ? "조회중..." : "검색"}
+            </button>
+          </div>
+
+          {/* 조회 결과 */}
+          {scamError && (
+            <div className="hrp-scam-result hrp-scam-result--error">{scamError}</div>
+          )}
+          {scamResult && (
+            <div className={`hrp-scam-result ${scamResult.totCnt === 0 ? "hrp-scam-result--safe" : scamResult.totCnt <= 2 ? "hrp-scam-result--caution" : "hrp-scam-result--danger"}`}>
+              {scamResult.totCnt === 0 ? (
+                <span>✔ 안전 — 사기 신고이력 없음</span>
+              ) : scamResult.totCnt <= 2 ? (
+                <span>⚠ 주의 — 신고 {scamResult.totCnt}건 (보이스피싱 {scamResult.voiceCnt}건 · 스미싱 {scamResult.smsCnt}건)</span>
+              ) : (
+                <span>✕ 위험 — 신고 {scamResult.totCnt}건 (보이스피싱 {scamResult.voiceCnt}건 · 스미싱 {scamResult.smsCnt}건)</span>
+              )}
+            </div>
+          )}
+
+          <div className="hrp-scam-stats">
+            <div className="hrp-scam-stat">
+              <span className="hrp-scam-stat-label">총 이력조회</span>
+              <span className="hrp-scam-stat-num">{scamCount1.toLocaleString()}건</span>
+            </div>
+            <div className="hrp-scam-stat">
+              <span className="hrp-scam-stat-label">총 사기번호</span>
+              <span className="hrp-scam-stat-num">{scamCount2.toLocaleString()}건</span>
+            </div>
+          </div>
+        </div>
 
         {/* 프리미엄 배너 */}
         <div className="hrp-premium">
