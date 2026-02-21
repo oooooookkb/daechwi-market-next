@@ -126,25 +126,55 @@ export default function CardDetailPage() {
             </div>
           </div>
 
-          {/* 업체정보 */}
+          {/* 업체정보 — 경쟁사 레이아웃 */}
           <div className="detail-card">
             <div className="detail-card-title"><span className="detail-card-title-bar" />업체정보</div>
-            <div className="detail-table">
-              <div className="detail-row"><span className="detail-label">업체명</span><span className="detail-value fw">{card.company}</span></div>
-              <div className="detail-row"><span className="detail-label">등록번호</span><span className="detail-value">{card.regNo}</span></div>
-              <div className="detail-row align-top">
-                <span className="detail-label">연락처</span>
-                <div className="detail-contact">
-                  <span className="detail-phone">{card.phone}</span>
-                  <div className="detail-contact-btns">
-                    <a href={`tel:${card.phone}`} className="detail-btn-call">📞 전화하기</a>
-                    <a href={`sms:${card.phone}`} className="detail-btn-sms">💬 문자하기</a>
-                  </div>
-                  <p className="detail-contact-tip">💡 &quot;대출마켓&quot;을 보고 연락드렸다고 하시면 상담이 빠르고 쉬워집니다.</p>
-                </div>
+
+            {/* 상단: 등록번호 | 업체명 아이콘 2열 */}
+            <div className="detail-info-top">
+              <div className="detail-info-top-item">
+                <span className="detail-info-icon">
+                  {/* 문서 아이콘 */}
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#bbb" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="4" y="2" width="16" height="20" rx="2"/>
+                    <line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="13" y2="15"/>
+                  </svg>
+                </span>
+                <span className="detail-info-top-label">등록번호</span>
+                <span className="detail-info-top-value">{card.regNo}</span>
               </div>
+              <div className="detail-info-top-divider" />
+              <div className="detail-info-top-item">
+                <span className="detail-info-icon">
+                  {/* 건물 아이콘 */}
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#bbb" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="1"/>
+                    <path d="M3 9h18M9 3v18M15 9v12"/>
+                  </svg>
+                </span>
+                <span className="detail-info-top-label">업체명</span>
+                <span className="detail-info-top-value fw">{card.company}</span>
+              </div>
+            </div>
+
+            {/* 하단: 등록기관·영업소 테이블 */}
+            <div className="detail-table">
               <div className="detail-row"><span className="detail-label">등록기관</span><span className="detail-value">{card.regOrg}</span></div>
               <div className="detail-row"><span className="detail-label">영업소</span><span className="detail-value">{card.office}</span></div>
+            </div>
+
+            {/* 팁 문구 */}
+            <p className="detail-contact-tip">
+              ◀ &quot;대출마켓&quot;을 보고 연락드렸다고 하시면 보다 상담이 쉬워집니다.
+            </p>
+
+            {/* 연락처 + 통화하기 가로 배치 */}
+            <div className="detail-phone-row">
+              <span className="detail-phone-label">연락처 {card.phone}</span>
+              <a href={`tel:${card.phone}`} className="detail-phone-call-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+                통화하기
+              </a>
             </div>
           </div>
 

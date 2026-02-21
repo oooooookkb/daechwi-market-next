@@ -3685,6 +3685,109 @@ a {
 }
 .detail-list-btn:hover { opacity: 0.88; }
 
+/* ── 업체정보 상단 2열 (등록번호 | 업체명) ── */
+.detail-info-top {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid #E8EAF0;
+  margin-bottom: 0;
+}
+
+.detail-info-top-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 10px 16px;
+  gap: 5px;
+  text-align: center;
+}
+
+.detail-info-top-divider {
+  width: 1px;
+  background: #E8EAF0;
+  flex-shrink: 0;
+}
+
+.detail-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.detail-info-top-label {
+  font-size: 12px;
+  color: #aaa;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+}
+
+.detail-info-top-value {
+  font-size: 13px;
+  color: #1a1a1a;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+.detail-info-top-value.fw {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+/* 팁 문구 — 주황색 */
+.detail-contact-tip {
+  font-size: 12.5px;
+  color: #E07B00;
+  line-height: 1.55;
+  padding: 12px 0 8px;
+  letter-spacing: -0.2px;
+  font-weight: 500;
+}
+
+/* 연락처 + 통화하기 가로 배치 */
+.detail-phone-row {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid #DCDDE0;
+  margin-bottom: 4px;
+}
+
+.detail-phone-label {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+  padding: 14px;
+  letter-spacing: -0.4px;
+  display: flex;
+  align-items: center;
+}
+
+.detail-phone-call-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #fff;
+  color: #E07B00;
+  border-left: 1px solid #DCDDE0;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  transition: background .15s;
+}
+.detail-phone-call-btn:hover { background: #FFF8F0; }
+.detail-phone-call-btn:active { background: #FFE8CC; }
+
 /* ── 주요 특징 아이콘 그리드 ── */
 .detail-features-grid {
   display: grid;
