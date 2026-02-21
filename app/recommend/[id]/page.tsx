@@ -401,6 +401,14 @@ export default function CardDetailPage() {
               부가설명
             </div>
             <p className="detail-extra">{card.extra.split("\n").map((line, i) => (<span key={i}>{line}<br /></span>))}</p>
+            <div className="detail-promo-banner detail-promo-banner--bottom">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+                <path d="M15.54 8.46a5 5 0 010 7.07"/>
+                <path d="M19.07 4.93a10 10 0 010 14.14"/>
+              </svg>
+              <span>대출마켓을 보고 연락드렸다고 하시면 상담이 더 빨라집니다!</span>
+            </div>
           </div>
 
           {/* 주의사항 */}

@@ -3813,6 +3813,13 @@ a {
   color: #E07B00;
 }
 
+/* 부가설명 카드 내부 하단 배너 — 좌우 패딩 없이 카드 끝까지 */
+.detail-promo-banner--bottom {
+  margin: 12px -14px -14px;
+  border-top: 1px solid #FFE0B2;
+  border-radius: 0 0 0 0;
+}
+
 /* ── 상세 타이틀 바 (히어로 제거 후) ── */
 .detail-title-bar {
   display: flex;
