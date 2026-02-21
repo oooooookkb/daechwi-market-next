@@ -613,12 +613,15 @@ a {
 .card:nth-child(6) { animation-delay: .30s; }
 
 .card-thumb {
-  height: 80px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
-  background: linear-gradient(160deg, #122B55 0%, #1E4A8A 100%);
+  background-color: #1a1f36;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #fff;
   padding: 10px 12px;
   text-shadow: 0 1px 8px rgba(0,0,0,0.5);
@@ -626,6 +629,25 @@ a {
   overflow: hidden;
   gap: 4px;
 }
+
+/* 태그 색상 (전역 - 모바일/PC 공용) */
+.pc-card-tag {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  letter-spacing: -0.2px;
+  position: absolute;
+  right: 6px;
+  bottom: 5px;
+}
+.pc-card-tag.tag--red    { color: #fff; background: #E8443A; }
+.pc-card-tag.tag--orange { color: #fff; background: #E8873A; }
+.pc-card-tag.tag--blue   { color: #fff; background: #3A7BE8; }
+.pc-card-tag.tag--yellow { color: #1a1f36; background: #F5D23A; }
+.pc-card-tag.tag--purple { color: #fff; background: #9B59B6; }
+.pc-card-tag.tag--green  { color: #fff; background: #27AE60; }
+.pc-card-tag.tag--pink   { color: #fff; background: #E84393; }
+.pc-card-tag.tag--navy   { color: #fff; background: #2C3E7B; }
 
 /* 배지 (상품 카테고리) */
 .card-thumb-badge {
