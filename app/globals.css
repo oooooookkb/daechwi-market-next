@@ -3839,9 +3839,11 @@ a {
 .detail-util-item {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
+  justify-content: center;
+  gap: 7px;
+  padding: 14px 8px;
   text-decoration: none;
   color: inherit;
   transition: background .15s;
@@ -3861,6 +3863,7 @@ a {
   color: #333;
   line-height: 1.45;
   letter-spacing: -0.3px;
+  text-align: center;
 }
 
 /* DB + 돋보기 아이콘 겹치기 */
