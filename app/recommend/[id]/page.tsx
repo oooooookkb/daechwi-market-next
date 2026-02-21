@@ -185,11 +185,6 @@ export default function CardDetailPage() {
               <div className="detail-row"><span className="detail-label">영업소</span><span className="detail-value">{card.office}</span></div>
             </div>
 
-            {/* 팁 문구 */}
-            <p className="detail-contact-tip">
-              ◀ &quot;대출마켓&quot;을 보고 연락드렸다고 하시면 보다 상담이 쉬워집니다.
-            </p>
-
             {/* 연락처 + 통화하기 가로 배치 */}
             <div className="detail-phone-row">
               <span className="detail-phone-label">연락처 {card.phone}</span>
