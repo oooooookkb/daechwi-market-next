@@ -6,6 +6,7 @@ import RegionSectionProduct from "../components/RegionSectionProduct";
 import PcHeader from "../components/PcHeader";
 import PcFooter from "../components/PcFooter";
 import PcProductPage from "../components/PcProductPage";
+import MobileFooter from "../components/MobileFooter";
 
 export const metadata: Metadata = {
   title: "상품별 업체찾기 | 대출마켓",
@@ -35,6 +36,7 @@ export default function ProductPage() {
           </p>
         </section>
         <RegionSectionProduct />
+        <MobileFooter />
         <div className="spacer"></div>
         <BottomNav />
       </div>

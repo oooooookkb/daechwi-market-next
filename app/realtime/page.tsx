@@ -8,6 +8,7 @@ import RealtimeHero from "../components/RealtimeHero";
 import PcHeader from "../components/PcHeader";
 import PcFooter from "../components/PcFooter";
 import PcRealtimePage from "../components/PcRealtimePage";
+import MobileFooter from "../components/MobileFooter";
 
 export const metadata: Metadata = {
   title: "실시간 대출상담 | 대출마켓",
@@ -31,6 +32,7 @@ export default function RealtimePage() {
         <RealtimeHero />
         <InfoSlider />
         <RealtimeSection />
+        <MobileFooter />
         <div className="spacer"></div>
         <BottomNav />
       </div>

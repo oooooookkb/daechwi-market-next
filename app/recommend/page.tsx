@@ -6,6 +6,7 @@ import CardsSection from "../components/CardsSection";
 import PcHeader from "../components/PcHeader";
 import PcFooter from "../components/PcFooter";
 import PcRecommendPage from "../components/PcRecommendPage";
+import MobileFooter from "../components/MobileFooter";
 
 export const metadata: Metadata = {
   title: "오늘의 추천업체 | 대출마켓",
@@ -52,6 +53,7 @@ export default function RecommendPage() {
           </p>
         </section>
         <CardsSection />
+        <MobileFooter />
         <div className="spacer"></div>
         <BottomNav />
       </div>

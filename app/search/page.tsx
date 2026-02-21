@@ -8,6 +8,7 @@ import BottomNav from "../components/BottomNav";
 import PcHeader from "../components/PcHeader";
 import PcFooter from "../components/PcFooter";
 import PcSearchPage from "../components/PcSearchPage";
+import MobileFooter from "../components/MobileFooter";
 
 const popularKeywords = ["월변대출", "당일대출", "무직자대출", "소액대출", "사업자대출", "비대면대출", "저신용자", "급전대출"];
 
@@ -139,6 +140,7 @@ export default function SearchPage() {
           </div>
         )}
 
+        <MobileFooter />
         <div className="spacer"></div>
         <BottomNav />
       </div>

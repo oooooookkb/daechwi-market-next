@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import BottomNav from "../components/BottomNav";
+import MobileFooter from "../components/MobileFooter";
 
 export default function DutyPage() {
   const [activeTab, setActiveTab] = useState<"duty" | "warning">("duty");
@@ -113,6 +114,7 @@ export default function DutyPage() {
           </div>
         )}
       </div>
+      <MobileFooter />
       <BottomNav />
     </div>
   );

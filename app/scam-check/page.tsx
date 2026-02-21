@@ -7,6 +7,7 @@ import BottomNav from "../components/BottomNav";
 import PcHeader from "../components/PcHeader";
 import PcFooter from "../components/PcFooter";
 import PcScamCheckPage from "../components/PcScamCheckPage";
+import MobileFooter from "../components/MobileFooter";
 
 const scamTips = [
   { icon: "💸", title: "수수료 요구", desc: "대출 전 수수료·보증금을 요구하면 100% 사기" },
@@ -150,6 +151,7 @@ export default function ScamCheckPage() {
           </div>
         </div>
 
+        <MobileFooter />
         <div className="spacer"></div>
         <BottomNav />
       </div>

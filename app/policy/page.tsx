@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import BottomNav from "../components/BottomNav";
+import MobileFooter from "../components/MobileFooter";
 
 export default function PolicyPage() {
   const [activeTab, setActiveTab] = useState<"terms" | "privacy">("terms");
@@ -204,6 +205,7 @@ export default function PolicyPage() {
           </div>
         )}
       </div>
+      <MobileFooter />
       <BottomNav />
     </div>
   );

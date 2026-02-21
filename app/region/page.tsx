@@ -7,6 +7,7 @@ import CompanySection from "../components/CompanySection";
 import PcHeader from "../components/PcHeader";
 import PcFooter from "../components/PcFooter";
 import PcRegionPage from "../components/PcRegionPage";
+import MobileFooter from "../components/MobileFooter";
 
 export const metadata: Metadata = {
   title: "지역별 업체찾기 | 대출마켓",
@@ -38,6 +39,7 @@ export default function RegionPage() {
         <RegionSection regionOnly />
         <div style={{ height: "10px", background: "#C4C8D4" }}></div>
         <CompanySection />
+        <MobileFooter />
         <div className="spacer"></div>
         <BottomNav />
       </div>
