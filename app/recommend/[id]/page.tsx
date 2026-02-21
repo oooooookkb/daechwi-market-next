@@ -124,7 +124,14 @@ export default function CardDetailPage() {
 
           {/* 업체정보 — 경쟁사 레이아웃 */}
           <div className="detail-card">
-            <div className="detail-card-title"><span className="detail-card-title-bar" />업체정보</div>
+            <div className="detail-card-title">
+              <span className="detail-card-title-bar" />
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E07B00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <path d="M3 9h18M9 3v18"/>
+              </svg>
+              업체정보
+            </div>
 
             {/* 상단: 등록번호 | 업체명 아이콘 2열 */}
             <div className="detail-info-top">
@@ -224,7 +231,13 @@ export default function CardDetailPage() {
 
           {/* 상품 특징 아이콘 카드 */}
           <div className="detail-card">
-            <div className="detail-card-title"><span className="detail-card-title-bar" />주요 특징</div>
+            <div className="detail-card-title">
+              <span className="detail-card-title-bar" />
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E07B00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+              </svg>
+              주요 특징
+            </div>
             <div className="detail-features-grid">
               {(card.features || []).map((feat, i) => {
                 const icons = ["✅", "⚡", "🏦", "📋"];
@@ -240,7 +253,14 @@ export default function CardDetailPage() {
 
           {/* 상품정보 — 2쌍 4열 테이블 */}
           <div className="detail-card">
-            <div className="detail-card-title"><span className="detail-card-title-bar" />상품정보</div>
+            <div className="detail-card-title">
+              <span className="detail-card-title-bar" />
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E07B00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/>
+                <line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/>
+              </svg>
+              상품정보
+            </div>
             <div className="detail-product-table">
               {[
                 [{ label: "월금리", value: card.monthRate },    { label: "연금리",       value: card.yearRate }],
@@ -270,7 +290,13 @@ export default function CardDetailPage() {
 
           {/* 부가설명 */}
           <div className="detail-card">
-            <div className="detail-card-title"><span className="detail-card-title-bar" />부가설명</div>
+            <div className="detail-card-title">
+              <span className="detail-card-title-bar" />
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#E07B00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+              </svg>
+              부가설명
+            </div>
             <p className="detail-extra">{card.extra.split("\n").map((line, i) => (<span key={i}>{line}<br /></span>))}</p>
           </div>
 
