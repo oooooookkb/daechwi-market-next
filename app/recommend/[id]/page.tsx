@@ -1,6 +1,7 @@
 "use client";
 
 import { useParams, useRouter } from "next/navigation";
+import { useState } from "react";
 import Header from "../../components/Header";
 import NavTabs from "../../components/NavTabs";
 import BottomNav from "../../components/BottomNav";
@@ -91,6 +92,8 @@ export default function CardDetailPage() {
   const { id } = useParams();
   const router = useRouter();
   const card = cards.find(c => c.id === Number(id));
+
+  const [showInfoModal, setShowInfoModal] = useState(false);
 
   // 다른 업체 추천 (현재 업체 제외, 최대 3개)
   const relatedCards = allCards.filter(c => c.id !== Number(id)).slice(0, 3);
@@ -268,9 +271,53 @@ export default function CardDetailPage() {
 
           {/* 업체정보 상세보기 | 대출시 주의사항 버튼 */}
           <div className="detail-expand-btns">
-            <button className="detail-expand-btn">업체정보 상세보기 <span className="detail-expand-plus">+</span></button>
+            <button className="detail-expand-btn" onClick={() => setShowInfoModal(true)}>업체정보 상세보기 <span className="detail-expand-plus">+</span></button>
             <button className="detail-expand-btn">대출시 주의사항 <span className="detail-expand-plus">+</span></button>
           </div>
+
+          {/* 업체정보 상세보기 모달 */}
+          {showInfoModal && (
+            <div className="modal-overlay" onClick={() => setShowInfoModal(false)}>
+              <div className="modal-sheet" onClick={e => e.stopPropagation()}>
+                <div className="modal-header">
+                  <span className="modal-title">업체정보 상세보기</span>
+                  <button className="modal-close" onClick={() => setShowInfoModal(false)}>✕</button>
+                </div>
+                <div className="modal-body">
+                  <div className="modal-table">
+                    <div className="modal-row">
+                      <span className="modal-label">업체명</span>
+                      <span className="modal-value">{card.company}</span>
+                    </div>
+                    <div className="modal-row">
+                      <span className="modal-label">업체 연락처</span>
+                      <span className="modal-value modal-value-phone">
+                        {card.phone}
+                        <a href={`tel:${card.phone}`} className="modal-call-btn">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+                          통화
+                        </a>
+                      </span>
+                    </div>
+                    <div className="modal-row">
+                      <span className="modal-label">등록번호</span>
+                      <span className="modal-value">{card.regNo}</span>
+                    </div>
+                    <div className="modal-row">
+                      <span className="modal-label">영업소</span>
+                      <span className="modal-value">{card.office}</span>
+                    </div>
+                    <div className="modal-row">
+                      <span className="modal-label">등록기관</span>
+                      <span className="modal-value">{card.regOrg}</span>
+                    </div>
+                  </div>
+                  <p className="modal-notice">📢 대출마켓을 보고 연락드렸다고 말씀해주세요</p>
+                </div>
+                <button className="modal-close-btn" onClick={() => setShowInfoModal(false)}>창닫기</button>
+              </div>
+            </div>
+          )}
 
           {/* 부가설명 */}
           <div className="detail-card">

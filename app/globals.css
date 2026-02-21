@@ -3971,6 +3971,134 @@ a {
   color: #E07B00;
 }
 
+/* ── 업체정보 상세보기 모달 ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.modal-sheet {
+  background: #fff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 85vh;
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid #E8EAF0;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: -0.4px;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.modal-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 0 0 8px;
+}
+
+.modal-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid #F0F2F5;
+  gap: 12px;
+}
+
+.modal-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  min-width: 80px;
+  flex-shrink: 0;
+  letter-spacing: -0.3px;
+}
+
+.modal-value {
+  font-size: 14px;
+  color: #111;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  word-break: keep-all;
+}
+
+.modal-value-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-call-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #E07B00;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  letter-spacing: -0.2px;
+}
+
+.modal-notice {
+  margin: 12px 20px 4px;
+  font-size: 13px;
+  color: #E07B00;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.modal-close-btn {
+  width: 100%;
+  padding: 17px;
+  background: #555;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  letter-spacing: -0.3px;
+  transition: background .15s;
+  flex-shrink: 0;
+}
+.modal-close-btn:active { background: #444; }
+
 /* ── 주요 특징 아이콘 그리드 ── */
 .detail-features-grid {
   display: grid;
