@@ -23,12 +23,8 @@ export default function MobileCardsSection() {
           >
             {/* PC와 동일하게 실제 이미지 배경 사용 */}
             <div
-              className="card-thumb"
-              style={{
-                backgroundImage: `url(${card.img})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
+              className="pc-card-top"
+              style={{ backgroundImage: `url(${card.img})` }}
             >
               <span className={`pc-card-tag tag--${card.tagColor}`}>{card.badge}</span>
             </div>
