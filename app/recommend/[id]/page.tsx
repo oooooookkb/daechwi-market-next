@@ -194,18 +194,32 @@ export default function CardDetailPage() {
             </div>
           </div>
 
-          {/* 상품정보 */}
+          {/* 상품정보 — 2쌍 4열 테이블 */}
           <div className="detail-card">
             <div className="detail-card-title"><span className="detail-card-title-bar" />상품정보</div>
-            <div className="detail-table">
+            <div className="detail-product-table">
               {[
-                { label: "월금리", value: card.monthRate }, { label: "대출한도", value: card.limit },
-                { label: "추가비용", value: card.extraFee }, { label: "상환방식", value: card.repayType },
-                { label: "지역", value: card.region }, { label: "연금리", value: card.yearRate },
-                { label: "연체금리", value: card.overRate }, { label: "조기상환수수료", value: card.earlyFee },
-                { label: "상환기간", value: card.repayPeriod },
-              ].map((row, i) => (
-                <div className="detail-row" key={i}><span className="detail-label">{row.label}</span><span className="detail-value">{row.value}</span></div>
+                [{ label: "월금리", value: card.monthRate },    { label: "연금리",       value: card.yearRate }],
+                [{ label: "대출한도", value: card.limit },      { label: "연체금리",     value: card.overRate }],
+                [{ label: "추가비용", value: card.extraFee },   { label: "조기상환수수료", value: card.earlyFee }],
+                [{ label: "상환방식", value: card.repayType },  { label: "상환기간",     value: card.repayPeriod }],
+                [{ label: "지역",    value: card.region },      { label: "",            value: "" }],
+              ].map((pair, i) => (
+                <div className="detail-product-row" key={i}>
+                  <div className="detail-product-cell">
+                    <span className="detail-product-label">{pair[0].label}</span>
+                    <span className="detail-product-value">{pair[0].value}</span>
+                  </div>
+                  {pair[1].label && (
+                    <>
+                      <div className="detail-product-divider" />
+                      <div className="detail-product-cell">
+                        <span className="detail-product-label">{pair[1].label}</span>
+                        <span className="detail-product-value">{pair[1].value}</span>
+                      </div>
+                    </>
+                  )}
+                </div>
               ))}
             </div>
           </div>

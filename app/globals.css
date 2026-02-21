@@ -3788,6 +3788,54 @@ a {
 .detail-phone-call-btn:hover { background: #FFF8F0; }
 .detail-phone-call-btn:active { background: #FFE8CC; }
 
+/* ── 상품정보 2쌍 4열 테이블 ── */
+.detail-product-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #E8EAF0;
+}
+
+.detail-product-row {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #E8EAF0;
+}
+.detail-product-row:last-child { border-bottom: none; }
+
+.detail-product-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  gap: 0;
+  min-width: 0;
+}
+
+.detail-product-divider {
+  width: 1px;
+  background: #E8EAF0;
+  flex-shrink: 0;
+}
+
+.detail-product-label {
+  font-size: 13px;
+  color: #888;
+  font-weight: 500;
+  white-space: nowrap;
+  min-width: 52px;
+  letter-spacing: -0.2px;
+  flex-shrink: 0;
+}
+
+.detail-product-value {
+  font-size: 13.5px;
+  color: #1a1a1a;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  padding-left: 8px;
+  word-break: keep-all;
+}
+
 /* ── 주요 특징 아이콘 그리드 ── */
 .detail-features-grid {
   display: grid;
