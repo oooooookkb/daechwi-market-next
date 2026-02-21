@@ -411,10 +411,25 @@ export default function CardDetailPage() {
             </div>
           </div>
 
-          {/* 주의사항 */}
+          {/* 유의사항 + 저작권 통합 */}
           <div className="detail-warning-box">
             <p className="detail-warning-title">※ 유의사항</p>
             <p className="detail-warning-text">{card.warning.split("\n").map((line, i) => (<span key={i}>{line}<br /></span>))}</p>
+            <div className="detail-copyright-inner" style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid rgba(255,255,255,0.2)" }}>
+              <div className="detail-copyright-logo-wrap">
+                <div className="detail-copyright-logo-icon">대</div>
+                <div className="detail-copyright-logo-text">
+                  <span className="detail-copyright-logo-name" style={{ color: "#fff" }}>대출마켓</span>
+                  <span className="detail-copyright-logo-sub" style={{ color: "rgba(255,255,255,0.6)" }}>대출중개플랫폼 1위</span>
+                </div>
+              </div>
+              <p className="detail-copyright-text" style={{ color: "rgba(255,255,255,0.75)" }}>
+                본 정보는 <strong style={{ color: "#FFD080" }}>{card.company}</strong>에 등록한 자료를 바탕으로 대출마켓에서 편집한 것입니다.
+                대출마켓 동의없이 무단전재 또는 재배포, 재가공 할 수 없으며, 대출마켓은{" "}
+                <strong style={{ color: "#FFD080" }}>{card.company}</strong>에 게재한 자료에 대한 오류와 사용자가 이를 신뢰하여 취한 조치에 대해 책임을 지지않습니다.{" "}
+                [저작권 대출마켓. 무단전재·재배포 금지]
+              </p>
+            </div>
           </div>
 
           {/* 다른 업체 추천 */}
@@ -437,27 +452,6 @@ export default function CardDetailPage() {
                   </svg>
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* 저작권 */}
-          <div className="detail-copyright">
-            <div className="detail-copyright-inner">
-              {/* 로고 */}
-              <div className="detail-copyright-logo-wrap">
-                <div className="detail-copyright-logo-icon">대</div>
-                <div className="detail-copyright-logo-text">
-                  <span className="detail-copyright-logo-name">대출마켓</span>
-                  <span className="detail-copyright-logo-sub">대출중개플랫폼 1위</span>
-                </div>
-              </div>
-              {/* 텍스트 */}
-              <p className="detail-copyright-text">
-                본 정보는 <strong>{card.company}</strong>에 등록한 자료를 바탕으로 대출마켓에서 편집한 것입니다.
-                대출마켓 동의없이 무단전재 또는 재배포, 재가공 할 수 없으며, 대출마켓은{" "}
-                <strong>{card.company}</strong>에 게재한 자료에 대한 오류와 사용자가 이를 신뢰하여 취한 조치에 대해 책임을 지지않습니다.{" "}
-                [저작권 대출마켓. 무단전재·재배포 금지]
-              </p>
             </div>
           </div>
 
