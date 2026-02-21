@@ -4348,9 +4348,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 15px 0;
-  font-size: 15px;
+  gap: 5px;
+  padding: 10px 0;
+  font-size: 14px;
   font-weight: 700;
   text-decoration: none;
   letter-spacing: -0.3px;
