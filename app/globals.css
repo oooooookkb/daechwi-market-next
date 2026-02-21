@@ -4391,6 +4391,9 @@ a {
   border-color: var(--navy);
   font-weight: 700;
 }
+.detail-region-section .region-btn::before {
+  display: none;
+}
 
 /* ── 하단 고정 CTA 바 ── */
 .detail-sticky-bar {
