@@ -3788,6 +3788,60 @@ a {
 .detail-phone-call-btn:hover { background: #FFF8F0; }
 .detail-phone-call-btn:active { background: #FFE8CC; }
 
+/* ── 유틸리티 바 (이자계산기 | 등록대부업체 통합조회) ── */
+.detail-util-bar {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  border: 1px solid #E8EAF0;
+  border-top: none;
+  margin-bottom: 0;
+}
+
+.detail-util-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: background .15s;
+}
+.detail-util-item:active { background: #F7F8FC; }
+
+.detail-util-divider {
+  width: 1px;
+  background: #E8EAF0;
+  flex-shrink: 0;
+  margin: 10px 0;
+}
+
+.detail-util-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.45;
+  letter-spacing: -0.3px;
+}
+
+/* DB + 돋보기 아이콘 겹치기 */
+.detail-util-icon-stack {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-util-search {
+  position: absolute;
+  bottom: -2px;
+  right: -4px;
+}
+
 /* ── 상품정보 2쌍 4열 테이블 ── */
 .detail-product-table {
   display: flex;
