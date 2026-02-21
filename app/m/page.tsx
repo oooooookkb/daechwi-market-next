@@ -31,7 +31,7 @@ export default function MobilePage() {
         <div style={{
           position: "absolute",
           inset: 0,
-          background: "rgba(8, 18, 45, 0.65)",
+          background: "rgba(8, 18, 45, 0.35)",
         }} />
         {/* 텍스트 */}
         <div style={{ position: "relative", zIndex: 1 }}>
