@@ -122,45 +122,6 @@ export default function CardDetailPage() {
             <h1 className="detail-title-text">{card.title}</h1>
           </div>
 
-          {/* 유틸리티 바 — 이자계산기 | 등록대부업체 통합조회 */}
-          <div className="detail-util-bar">
-            <a
-              href="https://www.fss.or.kr/fss/main/sub1Page.do?menuNo=200218"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="detail-util-item"
-            >
-              {/* 계산기 아이콘 */}
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E07B00" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <line x1="7" y1="7" x2="17" y2="7"/>
-                <rect x="7" y="11" width="2" height="2"/><rect x="11" y="11" width="2" height="2"/><rect x="15" y="11" width="2" height="2"/>
-                <rect x="7" y="15" width="2" height="2"/><rect x="11" y="15" width="2" height="2"/><rect x="15" y="15" width="2" height="2"/>
-              </svg>
-              <span className="detail-util-text">대출상환금<br />이자계산기</span>
-            </a>
-            <div className="detail-util-divider" />
-            <a
-              href="https://www.fss.or.kr/fss/main/sub1Page.do?menuNo=200218"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="detail-util-item"
-            >
-              {/* DB+돋보기 아이콘 */}
-              <span className="detail-util-icon-stack">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
-                  <ellipse cx="12" cy="6" rx="8" ry="3"/>
-                  <path d="M4 6v4c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/>
-                  <path d="M4 10v4c0 1.66 3.58 3 8 3"/>
-                </svg>
-                <svg className="detail-util-search" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E07B00" strokeWidth="2.5" strokeLinecap="round">
-                  <circle cx="10" cy="10" r="6"/><line x1="14.5" y1="14.5" x2="19" y2="19"/>
-                </svg>
-              </span>
-              <span className="detail-util-text">등록대부업체<br />통합조회</span>
-            </a>
-          </div>
-
           {/* 업체정보 — 경쟁사 레이아웃 */}
           <div className="detail-card">
             <div className="detail-card-title"><span className="detail-card-title-bar" />업체정보</div>
@@ -169,7 +130,6 @@ export default function CardDetailPage() {
             <div className="detail-info-top">
               <div className="detail-info-top-item">
                 <span className="detail-info-icon">
-                  {/* 문서 아이콘 */}
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#bbb" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="4" y="2" width="16" height="20" rx="2"/>
                     <line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="13" y2="15"/>
@@ -181,7 +141,6 @@ export default function CardDetailPage() {
               <div className="detail-info-top-divider" />
               <div className="detail-info-top-item">
                 <span className="detail-info-icon">
-                  {/* 건물 아이콘 */}
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#bbb" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="3" width="18" height="18" rx="1"/>
                     <path d="M3 9h18M9 3v18M15 9v12"/>
@@ -211,6 +170,33 @@ export default function CardDetailPage() {
                 통화하기
               </a>
             </div>
+          </div>
+
+          {/* 유틸리티 바 — 이자계산기 | 등록대부업체 통합조회 */}
+          <div className="detail-util-bar">
+            <a href="https://www.fss.or.kr/fss/main/sub1Page.do?menuNo=200218" target="_blank" rel="noopener noreferrer" className="detail-util-item">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E07B00" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <line x1="7" y1="7" x2="17" y2="7"/>
+                <rect x="7" y="11" width="2" height="2"/><rect x="11" y="11" width="2" height="2"/><rect x="15" y="11" width="2" height="2"/>
+                <rect x="7" y="15" width="2" height="2"/><rect x="11" y="15" width="2" height="2"/><rect x="15" y="15" width="2" height="2"/>
+              </svg>
+              <span className="detail-util-text">대출상환금<br />이자계산기</span>
+            </a>
+            <div className="detail-util-divider" />
+            <a href="https://www.fss.or.kr/fss/main/sub1Page.do?menuNo=200218" target="_blank" rel="noopener noreferrer" className="detail-util-item">
+              <span className="detail-util-icon-stack">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                  <ellipse cx="12" cy="6" rx="8" ry="3"/>
+                  <path d="M4 6v4c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/>
+                  <path d="M4 10v4c0 1.66 3.58 3 8 3"/>
+                </svg>
+                <svg className="detail-util-search" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E07B00" strokeWidth="2.5" strokeLinecap="round">
+                  <circle cx="10" cy="10" r="6"/><line x1="14.5" y1="14.5" x2="19" y2="19"/>
+                </svg>
+              </span>
+              <span className="detail-util-text">등록대부업체<br />통합조회</span>
+            </a>
           </div>
 
           {/* 상품 특징 아이콘 카드 */}
