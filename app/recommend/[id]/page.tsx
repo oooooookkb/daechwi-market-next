@@ -430,9 +430,6 @@ export default function CardDetailPage() {
             <RegionSection hideCards />
           </div>
 
-          <div className="detail-footer">
-            <button className="detail-list-btn" onClick={() => router.push("/recommend")}>목록</button>
-          </div>
         </div>
 
         {/* 하단 고정 CTA 바 (대출나라 벤치마킹) */}
