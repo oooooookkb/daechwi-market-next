@@ -129,10 +129,21 @@ export default function CardDetailPage() {
             {/* 상단: 등록번호 | 업체명 아이콘 2열 */}
             <div className="detail-info-top">
               <div className="detail-info-top-item">
+                {/* 등록증/문서 아이콘 */}
                 <span className="detail-info-icon">
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#bbb" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="4" y="2" width="16" height="20" rx="2"/>
-                    <line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="13" y2="15"/>
+                  <svg width="44" height="44" viewBox="0 0 48 48" fill="none">
+                    {/* 문서 몸통 */}
+                    <rect x="8" y="4" width="28" height="36" rx="3" fill="#F0F2F8" stroke="#D0D4E8" strokeWidth="1.5"/>
+                    {/* 상단 컬러 탭 */}
+                    <rect x="8" y="4" width="28" height="8" rx="3" fill="#E07B00" opacity="0.15"/>
+                    <rect x="8" y="8" width="28" height="4" fill="#E07B00" opacity="0.15"/>
+                    {/* 줄 */}
+                    <line x1="14" y1="18" x2="30" y2="18" stroke="#B0B8D0" strokeWidth="2" strokeLinecap="round"/>
+                    <line x1="14" y1="23" x2="30" y2="23" stroke="#B0B8D0" strokeWidth="2" strokeLinecap="round"/>
+                    <line x1="14" y1="28" x2="24" y2="28" stroke="#B0B8D0" strokeWidth="2" strokeLinecap="round"/>
+                    {/* 도장 원 */}
+                    <circle cx="34" cy="34" r="8" fill="#E07B00"/>
+                    <text x="34" y="38" textAnchor="middle" fontSize="9" fill="white" fontWeight="bold">인</text>
                   </svg>
                 </span>
                 <span className="detail-info-top-label">등록번호</span>
@@ -140,10 +151,27 @@ export default function CardDetailPage() {
               </div>
               <div className="detail-info-top-divider" />
               <div className="detail-info-top-item">
+                {/* 빌딩 아이콘 */}
                 <span className="detail-info-icon">
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#bbb" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="1"/>
-                    <path d="M3 9h18M9 3v18M15 9v12"/>
+                  <svg width="44" height="44" viewBox="0 0 48 48" fill="none">
+                    {/* 큰 건물 */}
+                    <rect x="6" y="14" width="22" height="30" rx="1" fill="#E8ECF8" stroke="#C8D0E8" strokeWidth="1.5"/>
+                    {/* 작은 건물(우측) */}
+                    <rect x="26" y="22" width="16" height="22" rx="1" fill="#D8DFEF" stroke="#C8D0E8" strokeWidth="1.5"/>
+                    {/* 큰 건물 창문들 */}
+                    <rect x="10" y="19" width="4" height="4" rx="0.5" fill="#E07B00" opacity="0.7"/>
+                    <rect x="18" y="19" width="4" height="4" rx="0.5" fill="#9EB0D8"/>
+                    <rect x="10" y="27" width="4" height="4" rx="0.5" fill="#9EB0D8"/>
+                    <rect x="18" y="27" width="4" height="4" rx="0.5" fill="#E07B00" opacity="0.7"/>
+                    <rect x="10" y="35" width="4" height="4" rx="0.5" fill="#9EB0D8"/>
+                    <rect x="18" y="35" width="4" height="4" rx="0.5" fill="#9EB0D8"/>
+                    {/* 작은 건물 창문 */}
+                    <rect x="29" y="26" width="4" height="4" rx="0.5" fill="#9EB0D8"/>
+                    <rect x="35" y="26" width="4" height="4" rx="0.5" fill="#E07B00" opacity="0.7"/>
+                    <rect x="29" y="34" width="4" height="4" rx="0.5" fill="#E07B00" opacity="0.7"/>
+                    <rect x="35" y="34" width="4" height="4" rx="0.5" fill="#9EB0D8"/>
+                    {/* 출입구 */}
+                    <rect x="14" y="37" width="6" height="7" rx="0.5" fill="#C8D0E8"/>
                   </svg>
                 </span>
                 <span className="detail-info-top-label">업체명</span>
