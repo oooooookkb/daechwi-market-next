@@ -8,6 +8,7 @@ import StatsSection from "../components/StatsSection";
 import MobileCardsSection from "../components/MobileCardsSection";
 import RealtimeSection from "../components/RealtimeSection";
 import RegionSection from "../components/RegionSection";
+import MobileBannerSlider from "../components/MobileBannerSlider";
 
 export default function MobilePage() {
   return (
@@ -15,6 +16,9 @@ export default function MobilePage() {
       {/* 모바일 헤더 */}
       <Header />
       <NavTabs />
+
+      {/* 모바일 배너 슬라이더 */}
+      <MobileBannerSlider />
 
       {/* 히어로 */}
       <HeroSection />
