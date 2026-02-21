@@ -467,11 +467,21 @@ export default function CardDetailPage() {
 
           {/* 기관 로고 */}
           <div className="detail-org-logos">
-            <span className="detail-org-item">🏛 금융감독원</span>
-            <span className="detail-org-item">🔄 신용회복위원회</span>
-            <span className="detail-org-item">📋 한국대부금융협회</span>
-            <span className="detail-org-item">🛡 NICE지키미</span>
-            <span className="detail-org-item">🏦 금융위원회</span>
+            <a href="https://www.fss.or.kr" target="_blank" rel="noopener noreferrer" className="detail-org-item">
+              <img src="/logos/fss.png" alt="금융감독원" className="detail-org-img" />
+            </a>
+            <a href="https://www.ccrs.or.kr" target="_blank" rel="noopener noreferrer" className="detail-org-item">
+              <img src="/logos/ccrs.png" alt="신용회복위원회" className="detail-org-img" />
+            </a>
+            <a href="https://www.clfa.or.kr" target="_blank" rel="noopener noreferrer" className="detail-org-item">
+              <img src="/logos/clfa.png" alt="한국대부금융협회" className="detail-org-img" />
+            </a>
+            <a href="https://www.nicecredit.co.kr" target="_blank" rel="noopener noreferrer" className="detail-org-item">
+              <img src="/logos/nice.png" alt="NICE지키미" className="detail-org-img" />
+            </a>
+            <a href="https://www.fsc.go.kr" target="_blank" rel="noopener noreferrer" className="detail-org-item">
+              <img src="/logos/fsc.png" alt="금융위원회" className="detail-org-img" />
+            </a>
           </div>
 
           {/* 하단 메뉴 링크 */}
