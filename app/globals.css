@@ -3620,6 +3620,22 @@ a {
   word-break: keep-all;
 }
 
+/* 유의사항 내 저작권 텍스트 */
+.detail-warning-copyright {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid #E0E2E8;
+  font-size: 11px;
+  color: #aaa;
+  line-height: 1.8;
+  letter-spacing: -0.1px;
+  word-break: keep-all;
+}
+.detail-warning-copyright strong {
+  color: #888;
+  font-weight: 600;
+}
+
 /* 저작권 */
 .detail-copyright {
   background: #fff;
