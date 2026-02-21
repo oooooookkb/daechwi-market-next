@@ -112,18 +112,14 @@ export default function CardDetailPage() {
         <NavTabs />
 
         <div className="detail-wrap">
-          {/* 히어로 배너 */}
-          <div className="detail-hero" style={{ background: `linear-gradient(160deg, ${card.color} 0%, #1E4A8A 100%)` }}>
-            <button className="detail-back" onClick={() => router.back()}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          {/* 타이틀 바 — 뒤로가기 + 제목 */}
+          <div className="detail-title-bar">
+            <button className="detail-back-sm" onClick={() => router.back()}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="15 18 9 12 15 6"/>
               </svg>
             </button>
-            <div className="detail-hero-inner">
-              <span className="detail-hero-badge">{card.badge}</span>
-              <h1 className="detail-hero-title">{card.title}</h1>
-              <p className="detail-hero-sub">{card.subtitle}</p>
-            </div>
+            <h1 className="detail-title-text">{card.title}</h1>
           </div>
 
           {/* 유틸리티 바 — 이자계산기 | 등록대부업체 통합조회 */}
