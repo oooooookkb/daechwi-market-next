@@ -315,7 +315,9 @@ export default function CardDetailPage() {
                   </div>
                   <p className="modal-notice">📢 대출마켓을 보고 연락드렸다고 말씀해주세요</p>
                 </div>
-                <button className="modal-close-btn" onClick={() => setShowInfoModal(false)}>창닫기</button>
+                <div className="modal-footer-btns">
+                  <button className="modal-close-btn" onClick={() => setShowInfoModal(false)}>창닫기</button>
+                </div>
               </div>
             </div>
           )}
@@ -353,8 +355,10 @@ export default function CardDetailPage() {
                     ))}
                   </ul>
                 </div>
-                <a href="/scam-check" className="modal-scam-btn">사칭및사기피해번호더보기 »</a>
-                <button className="modal-close-btn" onClick={() => setShowWarningModal(false)}>창닫기</button>
+                <div className="modal-footer-btns">
+                  <a href="/scam-check" className="modal-scam-btn">사칭및사기피해번호더보기 »</a>
+                  <button className="modal-close-btn" onClick={() => setShowWarningModal(false)}>창닫기</button>
+                </div>
               </div>
             </div>
           )}
